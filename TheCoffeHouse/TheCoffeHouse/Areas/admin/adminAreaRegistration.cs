@@ -17,8 +17,8 @@ namespace TheCoffeHouse.Areas.admin
             context.MapRoute(
                 "admin_default",
                 "admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "TheCoffeHouse.Areas.Controllers" }
+                new { controller ="Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "TheCoffeHouse.Areas.admin.Controllers" }
             );
         }
     }
