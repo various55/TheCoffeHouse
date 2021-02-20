@@ -11,3 +11,15 @@ G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.cs
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.dll
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.pdb
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csprojAssemblyReference.cache
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll.config
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.pdb
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.dll
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\System.Data.dll
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.xml
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csproj.CopyComplete
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.dll
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.pdb

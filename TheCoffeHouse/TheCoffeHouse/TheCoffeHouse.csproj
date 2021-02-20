@@ -129,8 +129,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Constain\CookieConst.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\admin\Helpers\CustomMembershipProvider.cs" />
     <Compile Include="Areas\admin\Helpers\SessionHelper.cs" />
     <Compile Include="Areas\admin\Helpers\UserSession.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2547,7 +2549,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52443</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52443/</IISUrl>
+          <IISUrl>http://localhost:8080/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

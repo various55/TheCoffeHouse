@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
+    [Authorize]
+    //[AllowAnonymous]
     public class HomeController : Controller
     {
         // GET: admin/Home
