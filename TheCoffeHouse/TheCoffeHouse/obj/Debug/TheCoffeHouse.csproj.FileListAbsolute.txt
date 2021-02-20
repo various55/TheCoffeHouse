@@ -72,8 +72,15 @@ G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Syst
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Newtonsoft.Json.xml
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Antlr3.Runtime.pdb
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csprojAssemblyReference.cache
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csproj.CoreCompileInputs.cache
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csproj.CopyComplete
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.dll
 G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.pdb
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Data.dll
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\EntityFramework.dll
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Data.pdb
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Data.dll.config
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\EntityFramework.xml
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csprojAssemblyReference.cache
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\EntityFramework.SqlServer.dll
+G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\EntityFramework.SqlServer.xml
