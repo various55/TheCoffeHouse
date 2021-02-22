@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using TheCoffeHouse.Areas.admin.Constain;
+using TheCoffeHouse.Areas.admin.Constains;
 using TheCoffeHouse.Areas.admin.Helpers;
 using TheCoffeHouse.Models;
 

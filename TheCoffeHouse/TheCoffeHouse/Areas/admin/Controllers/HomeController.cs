@@ -15,5 +15,12 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         {
             return View();
         }
+        [ChildActionOnly]
+        public ActionResult Navbar()
+        {
+            String[] items = { "Home","Contact" };
+            ViewBag.items = items;
+            return PartialView("_NavbarPartial",items);
+        }
     }
 }
