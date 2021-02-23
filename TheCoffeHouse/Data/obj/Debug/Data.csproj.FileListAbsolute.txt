@@ -1,16 +1,3 @@
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll.config
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.pdb
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.dll
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.SqlServer.dll
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\System.Data.dll
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.xml
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\EntityFramework.SqlServer.xml
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csproj.CopyComplete
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.dll
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.pdb
-G:\CNTT_UTC\Ki_6\Web\Projects\TheCoffeHouse\TheCoffeHouse\Data\obj\Debug\Data.csprojAssemblyReference.cache
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll.config
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.dll
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\Data\bin\Debug\Data.pdb

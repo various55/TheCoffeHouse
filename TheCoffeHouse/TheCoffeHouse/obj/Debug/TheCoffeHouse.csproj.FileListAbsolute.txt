@@ -165,8 +165,8 @@ F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Newtonsoft.Json.xml
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Antlr3.Runtime.pdb
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csprojAssemblyReference.cache
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csproj.CoreCompileInputs.cache
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csproj.CopyComplete
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.dll
 F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.pdb
+F:\CNTT-UTC\Ki_6\Web\Projects\Project\TheCoffeHouse\TheCoffeHouse\TheCoffeHouse\obj\Debug\TheCoffeHouse.csprojAssemblyReference.cache
