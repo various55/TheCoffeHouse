@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace TheCoffeHouse.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View();
+            var products = new ProductsDAO();
+            var model = products.findAll();
+            return View(model);
         }
     }
 }
