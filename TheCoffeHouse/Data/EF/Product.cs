@@ -26,7 +26,7 @@ namespace Data.EF
 
         public double? price { get; set; }
 
-        [StringLength(255)]
+        [Column(TypeName = "ntext")]
         public string details { get; set; }
 
         public bool? isShowOnHome { get; set; }

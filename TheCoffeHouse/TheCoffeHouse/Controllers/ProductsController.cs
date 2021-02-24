@@ -16,5 +16,12 @@ namespace TheCoffeHouse.Controllers
             var model = products.findAll();
             return View(model);
         }
+        [ChildActionOnly]
+        public ActionResult Categories()
+        {
+            var categories = new CategoriesDAO();
+            var model = categories.findAll();
+            return PartialView("_MenuCategoriesPartial",model);
+        }
     }
 }

@@ -18,8 +18,8 @@ namespace Data.EF
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<ShopConfig> ShopConfigs { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -131,6 +131,46 @@ namespace Data.EF
                 .WithRequired(e => e.Role)
                 .HasForeignKey(e => e.userId)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.id)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.imageLogo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.mobile)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.gmail)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.facebook)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.instagram)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.twitter)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ShopConfig>()
+                .Property(e => e.youtube)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<Status>()
                 .Property(e => e.id)
