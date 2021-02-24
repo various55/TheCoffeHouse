@@ -14,6 +14,7 @@ namespace TheCoffeHouse.Models
 
         public LoginModel()
         {
+
         }
 
         public LoginModel(string username, string password)
