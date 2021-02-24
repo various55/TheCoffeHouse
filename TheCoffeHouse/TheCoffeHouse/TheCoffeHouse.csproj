@@ -136,7 +136,10 @@
     <Compile Include="Areas\admin\Helpers\CustomMembershipProvider.cs" />
     <Compile Include="Areas\admin\Helpers\SessionHelper.cs" />
     <Compile Include="Areas\admin\Helpers\UserSession.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2559,11 +2562,18 @@
     <Content Include="Views\Shared\_ServicePartial.cshtml" />
     <Content Include="Views\Shared\_NewsletterPartial.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\_HeaderInnerPartial.cshtml" />
+    <Content Include="Views\Shared\_TopbarHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_MainMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_MenuCategoriesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Assets\common\" />
+    <Folder Include="Views\Cart\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
