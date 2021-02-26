@@ -1,4 +1,4 @@
-namespace Data.EF
+﻿namespace Data.EF
 {
     using System;
     using System.Collections.Generic;
@@ -17,9 +17,13 @@ namespace Data.EF
         [StringLength(10)]
         public string id { get; set; }
 
+        [Display(Name = "Tài khoản")]
+        [Required(ErrorMessage ="Username is required")]
         [StringLength(25)]
         public string username { get; set; }
 
+        [Display(Name = "Mật khẩu")]
+        [Required(ErrorMessage = "Password is required")]
         [StringLength(256)]
         public string password { get; set; }
 

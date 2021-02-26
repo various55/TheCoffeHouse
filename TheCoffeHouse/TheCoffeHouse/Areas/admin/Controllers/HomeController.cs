@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TheCoffeHouse.Areas.admin.Constains;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
@@ -15,12 +16,18 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         {
             return View();
         }
-        [ChildActionOnly]
-        public ActionResult Navbar()
+        public ActionResult GetUsername()
         {
-            String[] items = { "Home","Contact" };
-            ViewBag.items = items;
-            return PartialView("_NavbarPartial",items);
+            var username = Session[SessionConst.SESSION_LOGIN];
+            if(!String.IsNullOrEmpty(username.ToString()))
+            {
+                ViewBag.username = username.ToString();
+            }
+            else
+            {
+                RedirectToAction("Login","User");
+            }
+            return PartialView("Layout/_LeftMenuPartial");
         }
     }
 }
