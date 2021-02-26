@@ -26,6 +26,11 @@ namespace Data.Dao
             var res = context.Database.SqlQuery<bool>("usp_login @username,@password", sqlParams).SingleOrDefault();
             return res;
         }
+        public User findByUsername(String username)
+        {
+            var user = context.Users.Where(u => u.username == username).FirstOrDefault();
+            return user;
+        }
 
     }
 }

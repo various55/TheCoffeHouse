@@ -17,6 +17,9 @@
         [StringLength(10)]
         public string id { get; set; }
 
+        [StringLength(10)]
+        public string role { get; set; }
+
         [Display(Name = "Tài khoản")]
         [Required(ErrorMessage ="Username is required")]
         [StringLength(25)]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,10 +19,11 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         }
         public ActionResult GetUsername()
         {
-            var username = Session[SessionConst.SESSION_LOGIN];
+            var username = Request.Cookies[CookieConst.COOKIE_LOGIN].Value;
             if(!String.IsNullOrEmpty(username.ToString()))
             {
-                ViewBag.username = username.ToString();
+                var user = new UserDAO();
+                ViewBag.user = user.findByUsername(username);
             }
             else
             {

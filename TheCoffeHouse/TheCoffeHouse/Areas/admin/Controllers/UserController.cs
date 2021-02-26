@@ -18,7 +18,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         public ActionResult Index()
         {
             // Kiểm tra xem đã đăng nhập chưa, nếu đăng nhập rồi thì redirect sang trang chủ admin
-            if (Request.Cookies[CookieConst.COOKIE_LOGIN].Value != null)
+            if (Request.Cookies[CookieConst.COOKIE_LOGIN] != null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -47,7 +47,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            Request.Cookies.Clear();
+            Response.Cookies[CookieConst.COOKIE_LOGIN].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Index","User");
         }
     }
