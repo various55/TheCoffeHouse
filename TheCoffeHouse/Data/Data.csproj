@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\AbstractDAO.cs" />
+    <Compile Include="Dao\CategoriesDAO.cs" />
+    <Compile Include="Dao\ProductsDAO.cs" />
     <Compile Include="Dao\UserDAO.cs" />
     <Compile Include="EF\Action.cs" />
     <Compile Include="EF\Category.cs" />
@@ -64,8 +67,8 @@
     <Compile Include="EF\Permission.cs" />
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\Role.cs" />
+    <Compile Include="EF\ShopConfig.cs" />
     <Compile Include="EF\Status.cs" />
-    <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\Transaction.cs" />
     <Compile Include="EF\Type.cs" />
     <Compile Include="EF\User.cs" />

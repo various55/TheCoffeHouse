@@ -1,109 +1,139 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 @model  TheCoffeHouse.Models.LoginModel
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Login</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="/Assets/admin/pluginsfontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="~/Assets/home/css/sb-admin-2.css" rel="stylesheet">
-
+    <title>You Login Template</title>
+    <!-- Site favicon -->
+    <link rel="shortcut icon" href="~/Assets/admin/login/images/favicon.ico">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700" rel="stylesheet">
+    <!-- Icon Font -->
+    <link rel="stylesheet" href="~/Assets/admin/login/fonts/ionicons/css/ionicons.css">
+    <!-- Text Font -->
+    <link rel="stylesheet" href="~/Assets/admin/login/fonts/font.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Assets/admin/login/css/bootstrap.css">
+    <!-- Normal style CSS -->
+    <link rel="stylesheet" href="~/Assets/admin/login/css/style.css">
+    <!-- Normal media CSS -->
+    <link rel="stylesheet" href="~/Assets/admin/login/css/media.css">
 </head>
-
-<body class="bg-gradient-primary">
-
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    @using (Html.BeginForm("Login", "User"))
+<body>
+    <!-- Header end -->
+    <main class="cd-main">
+        <section class="cd-section index3 visible">
+            <div class="cd-content style3">
+                <div class="login-box">
+                    <div class="login-form-slider">
+                        <!-- login slide start -->
+                        <div class="login-slide slide">
+                            <div class="d-flex height-100-percentage">
+                                <div class="align-self-center width-100-percentage">
+                                    @using (Html.BeginForm("Login", "User",FormMethod.Post,new {@class = "floating-form" }))
                                     {
                                         @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true,null,new {@class = "alert alert-danger" })
+                                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
                                         <div class="form-group">
-                                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @placeholder = "Enter username ..." })
+                                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user" })
+                                            @Html.LabelFor(model=>model.Username, new { @class = "label" })
                                         </div>
                                         <div class="form-group">
-                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user", @placeholder = "Password.." })
+                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user"})
+                                            @Html.LabelFor(model=>model.Password,new {@class = "label" })
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">
-                                                    Remember
-                                                    Me
-                                                </label>
-                                            </div>
+                                            <input type="submit" class="submit" value="Đăng nhập">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
                                     }
-
-
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <div class="sign-up-txt">
+                                        Chưa có tài khoản? <a href="javascript:;" class="sign-up-click">Đăng kí</a>
                                     </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                    <div class="forgot-txt">
+                                        <a href="javascript:;" class="forgot-password-click">Quên mật khẩu</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- login slide end -->
+                        <!-- signup slide start -->
+                        <div class="signup-slide slide">
+                            <div class="d-flex height-100-percentage">
+                                <div class="align-self-center width-100-percentage">
+                                    <form class="floating-form">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="label">Name</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="label">Email</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label">Password</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label">Confirm Password</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="submit" value="Sign Up">
+                                        </div>
+                                    </form>
+                                    <div class="sign-up-txt">
+                                        if you have an account? <a href="javascript:;" class="login-click">login</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- signup slide end -->
+                        <!-- forgot password slide start -->
+                        <div class="forgot-password-slide slide">
+                            <div class="d-flex height-100-percentage">
+                                <div class="align-self-center width-100-percentage">
+                                    <form class="floating-form">
+                                        <label class="label">Enter your email address to reset your password</label>
+                                        <div class="form-group user-name-field">
+                                            <label class="label">Email</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="submit" value="Submit">
+                                        </div>
+                                    </form>
+                                    <div class="sign-up-txt">
+                                        if you remember your password? <a href="javascript:;" class="login-click">login</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- forgot password slide end -->
                     </div>
                 </div>
-
             </div>
+        </section>
+    </main>
+    <div id="cd-loading-bar" data-scale="1" class="index"></div>
 
-        </div>
-
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="/Assets/admin/pluginsjquery/jquery.min.js"></script>
-    <script src="/Assets/admin/pluginsbootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="/Assets/admin/pluginsjquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="/Assets/home/js/sb-admin-2.min.js"></script>
-
+    <!-- JS File -->
+    <script src="~/Assets/admin/login/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/Assets/admin/login/js/jquery.js"></script>
+    <script type="text/javascript" src="~/Assets/admin/login/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/Assets/admin/login/js/bootstrap.js"></script>
+    <script src="~/Assets/admin/login/js/velocity.min.js"></script>
+    <script type="text/javascript" src="~/Assets/admin/login/js/script.js"></script>
 </body>
-
 </html>

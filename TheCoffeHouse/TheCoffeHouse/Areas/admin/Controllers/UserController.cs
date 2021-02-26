@@ -17,8 +17,8 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         // GET: admin/User
         public ActionResult Index()
         {
-            var session = Session[SessionConst.SESSION_LOGIN];
-            if (session != null)
+            // Kiểm tra xem đã đăng nhập chưa, nếu đăng nhập rồi thì redirect sang trang chủ admin
+            if (Request.Cookies[CookieConst.COOKIE_LOGIN].Value != null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -34,7 +34,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             {
                 //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
                 FormsAuthentication.SetAuthCookie(model.Username,true);
-                Session[SessionConst.SESSION_LOGIN] = model.Username;
+                Response.Cookies[CookieConst.COOKIE_LOGIN].Value = model.Username;
                 return RedirectToAction("Index","Home");
             }
             else
@@ -47,7 +47,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            Session.Remove(SessionConst.SESSION_LOGIN);
+            Request.Cookies.Clear();
             return RedirectToAction("Index","User");
         }
     }

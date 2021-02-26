@@ -1,4 +1,4 @@
-namespace Data.EF
+﻿namespace Data.EF
 {
     using System;
     using System.Collections.Generic;
@@ -18,15 +18,17 @@ namespace Data.EF
         [StringLength(10)]
         public string id { get; set; }
 
+        [Display(Name ="Tên sản phẩm")]
         [StringLength(50)]
         public string name { get; set; }
 
         [StringLength(255)]
         public string description { get; set; }
 
+        [Display(Name = "Giá")]
         public double? price { get; set; }
 
-        [StringLength(255)]
+        [Column(TypeName = "ntext")]
         public string details { get; set; }
 
         public bool? isShowOnHome { get; set; }
