@@ -10,9 +10,11 @@ using TheCoffeHouse.Models;
 
 namespace TheCoffeHouse.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
         // GET: User
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
