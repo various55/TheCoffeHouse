@@ -1,4 +1,4 @@
-﻿using Data.EF;
+﻿using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,16 @@ namespace Data.Dao
 {
     public class CategoriesDAO
     {
-        private WebDbContext context = null;
+        private MyDbContext context = null;
 
         public CategoriesDAO()
         {
-            context = new WebDbContext();
+            context = new MyDbContext();
         }
 
         public List<Category> findAll()
         {
-            var categories = context.Database.SqlQuery<Category>("usp_SelectCategoriesAll").ToList();
+            var categories = context.Categories.ToList();
             return categories;
         }
 

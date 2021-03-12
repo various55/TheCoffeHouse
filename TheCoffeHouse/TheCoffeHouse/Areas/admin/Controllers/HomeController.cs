@@ -23,7 +23,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             if(!String.IsNullOrEmpty(username.ToString()))
             {
                 var user = new UserDAO();
-                ViewBag.user = user.findByUsername(username);
+                //ViewBag.user = user.findByUsername(username);
             }
             else
             {

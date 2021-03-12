@@ -9,17 +9,16 @@ namespace Data.EF
     public partial class UserRole
     {
         [Key]
-        [Column(Order = 0)]
-        [StringLength(10)]
-        public string userId { get; set; }
+        public int id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string roleId { get; set; }
+        public int userId { get; set; }
 
+        public int roleId { get; set; }
+        
+        [ForeignKey("roleId")]
         public virtual Role Role { get; set; }
 
+        [ForeignKey("userId")]
         public virtual User User { get; set; }
     }
 }

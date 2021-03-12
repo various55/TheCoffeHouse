@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Constains\CookieConst.cs" />
+    <Compile Include="Areas\admin\Constains\ImagesConst.cs" />
     <Compile Include="Areas\admin\Constains\SessionConst.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductsController.cs" />
@@ -7708,6 +7709,8 @@
     <Content Include="Assets\admin\css\view\css\font\font.min.css" />
     <Content Include="Assets\admin\css\view\css\font\fontawesome-all.min.css" />
     <Content Include="Assets\admin\css\view\css\news_css_rwd.css" />
+    <Content Include="Assets\admin\css\view\css\products\create\myCss.css" />
+    <Content Include="Assets\admin\css\view\css\products\create\myJs.js" />
     <Content Include="Assets\admin\css\view\js\Common.js" />
     <Content Include="Assets\admin\css\view\js\jquery-1.9.1.min.js" />
     <Content Include="Assets\admin\css\view\js\Lightbox\lightbox.min.css" />
@@ -7718,6 +7721,7 @@
     <Content Include="Assets\admin\css\view\js\slick\slick.js" />
     <Content Include="Assets\admin\css\view\js\stv_new.js" />
     <Content Include="Assets\admin\css\view\lazyload.min.js" />
+    <Content Include="Assets\admin\css\view\switchBox.css" />
     <Content Include="Assets\admin\login\images\arrow-right-c.svg" />
     <Content Include="Assets\admin\login\images\banner1.jpg" />
     <Content Include="Assets\admin\login\images\banner2.jpg" />
@@ -7776,12 +7780,6 @@
     <Content Include="Assets\home\css\themify-icons.css" />
     <Content Include="Assets\home\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\home\fonts\themify.svg" />
-    <Content Include="Assets\home\images\favicon.png" />
-    <Content Include="Assets\home\images\logo.png" />
-    <Content Include="Assets\home\images\logo2.png" />
-    <Content Include="Assets\home\images\map-marker.png" />
-    <Content Include="Assets\home\images\payment-method.png" />
-    <Content Include="Assets\home\images\payments.png" />
     <Content Include="Assets\home\js\active.js" />
     <Content Include="Assets\home\js\bootstrap.min.js" />
     <Content Include="Assets\home\js\easing.js" />
@@ -7804,6 +7802,100 @@
     <Content Include="Assets\home\js\ytplayer.min.js" />
     <Content Include="Assets\home\mail\mail.php" />
     <Content Include="Assets\home\style.css" />
+    <Content Include="Assets\images\americano.png" />
+    <Content Include="Assets\images\americano_copy_92414ac8e0634fb48ea72b21bc496b43_large.jpg" />
+    <Content Include="Assets\images\apptui_vai_2_8fa616b745ca47ed91e4b265b824a6e2_large.jpg" />
+    <Content Include="Assets\images\bac_siu.png" />
+    <Content Include="Assets\images\bac_siu_099c749a7d6044bc9f7f0eac7f57808f_large.jpg" />
+    <Content Include="Assets\images\banh_mi_que_40c05d95e9eb44e5997a4071b004ea97_large.jpg" />
+    <Content Include="Assets\images\cafe-da-xay.png" />
+    <Content Include="Assets\images\cam-pbt-da-xay_4a7971fac1f34e439e6b3255c704ed26_large.jpg" />
+    <Content Include="Assets\images\cam_pbt_da_xay_27dc80ef2efb4828885c2be429aa42fa_large.jpg" />
+    <Content Include="Assets\images\cam_vang_say_deo_79c5c1eb4de840f7936b6679c6e1f138_large.jpg" />
+    <Content Include="Assets\images\cappuccino.jpg" />
+    <Content Include="Assets\images\cappuccino_af58b143de7e4faeb9a3ce59b313c946_large.jpg" />
+    <Content Include="Assets\images\caramel_macchiato_.png" />
+    <Content Include="Assets\images\caramel_macchiato_24ff98b746e84b7aba702c01a60b1a52_large.jpg" />
+    <Content Include="Assets\images\ca_phe_phin_a7415bf4c5fe4a5ea2b2da919455e154_large.png" />
+    <Content Include="Assets\images\cfsd_615a3cb2b1e342d2b1986bfeb6572070_large.jpg" />
+    <Content Include="Assets\images\cf_da.png" />
+    <Content Include="Assets\images\cf_da_copy_a33d6e77f8da405bba9da541744dcea9_large.jpg" />
+    <Content Include="Assets\images\cf_da_xay_c062933b9a044c5f9b6370a34e2d2216_large.jpg" />
+    <Content Include="Assets\images\chanhday_1x1_da85397059a149e1b886237434f7ce48_large.jpg" />
+    <Content Include="Assets\images\chanh_sa_da_xay_45d1c4971e4f4251a2858aa3970fed80_large.jpg" />
+    <Content Include="Assets\images\chocolate_ice_blended_45497439e5ea4aa980b8c63078608a2d_large.jpg" />
+    <Content Include="Assets\images\classic_cold_brew_67a26b702dbc4602b36c450893efdab0_large.jpg" />
+    <Content Include="Assets\images\coffee_cf__arabica_app_moi_f7501f79743e43c9914821199f37e050_large.jpg" />
+    <Content Include="Assets\images\cold_brew.png" />
+    <Content Include="Assets\images\cold_brew_cs_49d3bb2e8c1e482580f9d0160251a5c3_large.jpg" />
+    <Content Include="Assets\images\cold_brew_pnt_copy_172c6bdd6923422c9a01111867ce8686_large.jpg" />
+    <Content Include="Assets\images\cold_brew_sua_tuoi_ee783daa0b44466b858f990f42943d46_large.jpg" />
+    <Content Include="Assets\images\espressonong_f60fc6f25baa404c8a8bfc40c396f27e_large.jpg" />
+    <Content Include="Assets\images\favicon.png" />
+    <Content Include="Assets\images\gau_1x1_8b308db3a67a47688ff0d69a8c5615bf_large.jpg" />
+    <Content Include="Assets\images\ga_xe_la_chanh_7fd28bb113bc40068f8c599f8c04669e_large.jpg" />
+    <Content Include="Assets\images\gift-set-app_08c73112c20e434ca35f555f07973d0a_large.jpg" />
+    <Content Include="Assets\images\hat-dieu-mat-ong_472628eb00474362b4d2f9acbcb4d879_large.jpg" />
+    <Content Include="Assets\images\heo_say_xong_khoi_1c4b202aac434634818939d3d2fd86bd_large.jpg" />
+    <Content Include="Assets\images\hop-qua-tet.png" />
+    <Content Include="Assets\images\latte_dd6427d058294df5aa4745e5a6035a93_large.jpg" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\logo2.png" />
+    <Content Include="Assets\images\macca_d56d5ab8dde4455aa7f19d29b5fff763_large.jpg" />
+    <Content Include="Assets\images\map-marker.png" />
+    <Content Include="Assets\images\matchadaxay_5d6b255ccee94330b847b6ed3fece40c_large.jpg" />
+    <Content Include="Assets\images\matcha_178bdeeb1f9b47ea9f782048eb145f49_large.jpg" />
+    <Content Include="Assets\images\matcha_latte_da_copy_c3100f721af84845b45c5d4422383d49_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webbinh_giu_nhiet_inox_faeb557d906b4a3d9cc0069714b6103b_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webbinh_inox_ong_hut_den_749eb0800ead4d5fb126dddd0627bb84_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webbinh_inox_ong_hut_nhieu_mau_e608b40299dc4754b417216b035f6128_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webbinh_inox_ong_hut_xanh_38d284044a4e49719a5b374f2adcba9e_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webbinh_tumbler_den_b57fb8bfe9c446a092b076cb3f42d735_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_gon_song_d9efc6093e564e2faa302ed59ef5cdd8_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_nhua_con_thuyen_9671ce6feacb4bf58f885573c83f0886_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_nhua_qua_dua_1ab5bca338f746b2822133386a4bb31c_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_dn_cec3d9d00d2045f181660c7b0625614d_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_ff2c_6d661660dd1e433f8008197f35e65f06_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_ff2c_lun_4726b38c703f44a0bf278772dc76bfc1_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_hn_8324ce692c154ac68c6fc388394b7e13_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_sg_d8e02917f4b8495285ce949cf0007d68_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webly_su_soc_ngang_6ea7e30e86fd49cdac08e725ee35b6dd_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webong_hut_inox_den_8e5748631dcd4cc9a7371c2c488f56b4_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webtui_vai_dn_43a337220de0467497892ba5ba87a61c_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webtui_vai_hn_41b0a5e79a52479287d063589d218562_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webtui_vai_sg_081638376ab441be883989b8f4d16a09_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webtumbler_con_thuyen_84d887ab98864640b520a31b986a252a_large.jpg" />
+    <Content Include="Assets\images\merchandise_hinh_len_webtumbler_qua_dua_f5aee5d72b8249db9ef043dc6a6d651b_large.jpg" />
+    <Content Include="Assets\images\mit-say_1x1_23736c9eef904141bf9311fdc4be2afa_large.jpg" />
+    <Content Include="Assets\images\mocha_da.png" />
+    <Content Include="Assets\images\mocha_da_a2913936f9d84d07b63ac1ddf5dd2d0f_large.jpg" />
+    <Content Include="Assets\images\mochi-chocolate_24bddab1f9c64658a4052480e5e4f1ba_large.jpg" />
+    <Content Include="Assets\images\mochi-mango_7575626c13c841df910ff9ef5ecd4f24_large.jpg" />
+    <Content Include="Assets\images\mochi-matcha_7fb346641da54f9cb410a59b5ae716f4_large.jpg" />
+    <Content Include="Assets\images\payment-method.png" />
+    <Content Include="Assets\images\payments.png" />
+    <Content Include="Assets\images\phomaichabong_1x1_bed88825466e4e53bde516ce1febdb56_large.jpg" />
+    <Content Include="Assets\images\photo_2020-11-10_17-41-51_6c3b1ba948354101b892644fb7aab5c6_large.jpg" />
+    <Content Include="Assets\images\sinh-to-viet-quoc_bd95abd5bf84451e8ee0c8cef031432c_large.jpg" />
+    <Content Include="Assets\images\sinh_to_cam_xoai_c3cfa1beec0d4e49b0b229104cbfe412_large.jpg" />
+    <Content Include="Assets\images\socola-gung.png" />
+    <Content Include="Assets\images\socola_83e0d06b24294e53a67934e06f4fe7f4_large.jpg" />
+    <Content Include="Assets\images\tira_1x1_eb865751a24e4520be32a56129dd7a2d_large.jpg" />
+    <Content Include="Assets\images\tra-dua-luoi.png" />
+    <Content Include="Assets\images\tra-dua-luoi_782fb083d885490ba64a7446d9a35eaf_large.jpg" />
+    <Content Include="Assets\images\tra_buoi_5c4c5ce2d4e44042a069ec9011ef1a9f_large.jpg" />
+    <Content Include="Assets\images\tra_dao.png" />
+    <Content Include="Assets\images\tra_dao_5f3925d9bfca4d0abc17f95b05fff5f7_large.jpg" />
+    <Content Include="Assets\images\tra_den_macchiato_789c1d7590a24dce8dd0a412ae03a7fd_large.jpg" />
+    <Content Include="Assets\images\tra_lai_macchiato_593fa25b60c746a0bbaab931ce646d42_large.jpg" />
+    <Content Include="Assets\images\tra_pbt_b1d7b2aac4474bad9e16906964170a17_large.jpg" />
+    <Content Include="Assets\images\tra_sen_bd7ab23f9be048429bb13682f6515ec3_large.jpg" />
+    <Content Include="Assets\images\tra_vai_046084306a484f41bd8c37efaab8f538_large.jpg" />
+    <Content Include="Assets\images\tra_xoai_macchiato_05083a71dbf047daa914c5a107c963af_large.jpg" />
+    <Content Include="Assets\images\trungmui1_9abf7c43946b44e9948dbac1eff95e40_large.jpg" />
+    <Content Include="Assets\images\ts-khoai-mon_1x1_e0d98e67a7ef424e9e220161aba227bc_large.png" />
+    <Content Include="Assets\images\yogurt-dua-luoi_30e104322e764a8aa4794e09c1ff74ab_large.jpg" />
+    <Content Include="Assets\images\_2matcha_macchiato_copy_a4142e7ff6fe41058bdd415ea67ecb2d_large.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -8659,6 +8751,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Shared\ReportHome\" />
+    <Folder Include="Assets\admin\css\myCss\" />
+    <Folder Include="Assets\admin\js\myJs\" />
     <Folder Include="Assets\common\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Orders\" />
@@ -8677,16 +8771,20 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{ca0c1ba4-53fb-478b-8c74-39319f53e14a}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Assets\admin\css\bower_components\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{ca0c1ba4-53fb-478b-8c74-39319f53e14a}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyExceptions\MyExceptions.csproj">
+      <Project>{40a3e858-c667-4d27-9ad8-8c90365547fd}</Project>
+      <Name>MyExceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -8707,7 +8805,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52443</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8080/</IISUrl>
+          <IISUrl>http://localhost:8085/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

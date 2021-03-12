@@ -10,25 +10,28 @@ namespace Data.Dao
 {
     public class ProductsDAO
     {
-        private WebDbContext context = null;
+        private MyDbContext context = null;
 
         public ProductsDAO()
         {
-            context = new WebDbContext();
+            context = new MyDbContext();
         }
         public List<Product> findAll()
         {
-            var products = context.Database.SqlQuery<Product>("usp_SelectProductsAll").ToList();
+            var products = context.Products.ToList();
             return products;
         }
         public List<Product> findById(string id)
         {
-            object[] sqlParams =
-            {
-                new SqlParameter("@id", id ),
-            };
-            var products = context.Database.SqlQuery<Product>("usp_SelectProduct",sqlParams).ToList();
+            List<Product> products = new List<Product>();
+            var product = context.Products.Find(id);
+            products.Add(product);
             return products;
+        }
+        public int add(Product p)
+        {
+            context.Products.Add(p);
+            return context.SaveChanges();
         }
     }
 }

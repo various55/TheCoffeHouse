@@ -6,24 +6,19 @@ namespace Data.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Order
+    public partial class Order : AbstractModel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            OrderDetails = new HashSet<OrderDetail>();
-            Transactions = new HashSet<Transaction>();
         }
 
-        [StringLength(10)]
-        public string id { get; set; }
+        [Required]
+        public int? createdBy { get; set; }
 
-        [StringLength(10)]
-        public string createdBy { get; set; }
+        [Required]
+        public int? userId { get; set; }
 
-        [StringLength(10)]
-        public string userId { get; set; }
-
+        [Required]
         public DateTime? orderDate { get; set; }
 
         [StringLength(50)]
@@ -35,11 +30,10 @@ namespace Data.EF
         [StringLength(20)]
         public string shipPhoneNumber { get; set; }
 
+        [Required]
         public int? status { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string typeId { get; set; }
+        public int typeId { get; set; }
 
         public double? fee { get; set; }
 
@@ -47,12 +41,11 @@ namespace Data.EF
 
         public double? total { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
+        [ForeignKey("typeId")]
         public virtual Type Type { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

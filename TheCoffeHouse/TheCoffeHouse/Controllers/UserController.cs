@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Data.Dao;
-using Data.EF;
 using TheCoffeHouse.Areas.admin.Helpers;
 using TheCoffeHouse.Models;
 

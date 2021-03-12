@@ -1,11 +1,11 @@
 ﻿@model List<Data.EF.Category>
-<div class="all-category">
-    <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
-    <ul class="main-category">
+
+<div class="single-widget category">
+    <h3 class="title">Danh mục</h3>
+    <ul class="categor-list">
         @foreach (var item in Model)
         {
-            <li>@item.name</li>
+            <li><a href="#">@item.name</a></li>
         }
-
     </ul>
 </div>

@@ -6,27 +6,24 @@ namespace Data.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Permission
+    public partial class Permission 
     {
         [Key]
-        [Column(Order = 0)]
-        [StringLength(10)]
-        public string roleId { get; set; }
+        public int id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string functionId { get; set; }
+        public int roleId { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [StringLength(10)]
-        public string actionId { get; set; }
+        public int functionId { get; set; }
 
+        public int actionId { get; set; }
+
+        [ForeignKey("roleId")]
         public virtual Action Action { get; set; }
 
+        [ForeignKey("functionId")]
         public virtual Function Function { get; set; }
 
+        [ForeignKey("actionId")]
         public virtual Role Role { get; set; }
     }
 }

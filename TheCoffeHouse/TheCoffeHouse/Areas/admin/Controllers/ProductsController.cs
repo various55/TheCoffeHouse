@@ -6,14 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Data.Dao;
 using Data.EF;
+using TheCoffeHouse.Areas.admin.Constains;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private WebDbContext db = new WebDbContext();
-
+        private MyDbContext db = new MyDbContext();
+        private ProductsDAO productDAO = new ProductsDAO();
         // GET: admin/Products
         public ActionResult Index()
         {
@@ -48,12 +50,13 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,description,price,details,isShowOnHome,discount,quantityOrder,image,categoriesId")] Product product)
+        [ValidateInput(false)]
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                product.image = ImagesConst.URL_IMAGE + product.image;
+                productDAO.add(product);
                 return RedirectToAction("Index");
             }
 
@@ -62,9 +65,9 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         }
 
         // GET: admin/Products/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id < -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -89,9 +92,9 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         }
 
         // GET: admin/Products/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id < 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -106,7 +109,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         // POST: admin/Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
             db.Products.Remove(product);

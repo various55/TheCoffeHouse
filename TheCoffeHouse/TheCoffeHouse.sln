@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheCoffeHouse", "TheCoffeHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{CA0C1BA4-53FB-478B-8C74-39319F53E14A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyExceptions", "MyExceptions\MyExceptions.csproj", "{40A3E858-C667-4D27-9AD8-8C90365547FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,12 @@ Global
 		{CA0C1BA4-53FB-478B-8C74-39319F53E14A}.GenerateDebug|Any CPU.Build.0 = Debug|Any CPU
 		{CA0C1BA4-53FB-478B-8C74-39319F53E14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA0C1BA4-53FB-478B-8C74-39319F53E14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.GenerateDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.GenerateDebug|Any CPU.Build.0 = Debug|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A3E858-C667-4D27-9AD8-8C90365547FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,20 +6,14 @@ namespace Data.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Transaction
+    public partial class Transaction : AbstractModel
     {
-        [StringLength(10)]
-        public string id { get; set; }
 
-        [StringLength(10)]
-        public string userId { get; set; }
+        public int userId { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string orderId { get; set; }
+        public int orderId { get; set; }
 
-        [StringLength(10)]
-        public string createdBy { get; set; }
+        public int? createdBy { get; set; }
 
         public DateTime? createdAt { get; set; }
 
@@ -28,6 +22,11 @@ namespace Data.EF
 
         public bool? status { get; set; }
 
+        [ForeignKey("orderId")]
         public virtual Order Order { get; set; }
+
+
+        [ForeignKey("userId")]
+        public virtual User User { get; set; }
     }
 }
