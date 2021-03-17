@@ -484,3 +484,9 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,csharp
+#my
+*.cache
+.Data/obj/debug/*.cache
+.TheCoffeHouse/bin/*.dll
+.TheCoffeHouse/bin/*.pdb
+.fe/TheCoffeHouse/login/you-login
