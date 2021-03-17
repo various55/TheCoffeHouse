@@ -48,10 +48,12 @@
                                     @using (Html.BeginForm("Login", "User"))
                                     {
                                         <div class="form-group">
-                                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @placeholder = "Enter username ..." })
+                                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control form-control-user", @placeholder = "Enter username ..." })
+                                            @Html.ValidationMessageFor(m => m.Username);
                                         </div>
                                         <div class="form-group">
-                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user", @placeholder = "Password.." })
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", @placeholder = "Password.." })
+                                            @Html.ValidationMessageFor(m => m.Password);
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

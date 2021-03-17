@@ -9,8 +9,8 @@ namespace Data.EF
     [Table("ShopConfig")]
     public partial class ShopConfig
     {
-        [StringLength(10)]
-        public string id { get; set; }
+        [Key]
+        public int id { get; set; }
 
         [StringLength(50)]
         public string shopName { get; set; }
@@ -18,7 +18,7 @@ namespace Data.EF
         [StringLength(255)]
         public string imageLogo { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         public string mobile { get; set; }
 
         [StringLength(255)]

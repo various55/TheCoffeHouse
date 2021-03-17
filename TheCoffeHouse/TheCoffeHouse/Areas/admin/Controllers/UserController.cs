@@ -11,6 +11,7 @@ using TheCoffeHouse.Models;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
 
@@ -28,18 +29,20 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
-            //var res = new UserDAO().Login(model.Username, model.Password);
-            var res = Membership.ValidateUser(model.Username, model.Password);
-            if (res && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
-                FormsAuthentication.SetAuthCookie(model.Username,true);
-                Response.Cookies[CookieConst.COOKIE_LOGIN].Value = model.Username;
-                return RedirectToAction("Index","Home");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không tồn tại");
+                var res = Membership.ValidateUser(model.Username, model.Password);
+                if (res)
+                {
+                    //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
+                    FormsAuthentication.SetAuthCookie(model.Username, true);
+                    Response.Cookies[CookieConst.COOKIE_LOGIN].Value = model.Username;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không tồn tại");
+                }
             }
             return View("Index");
         }

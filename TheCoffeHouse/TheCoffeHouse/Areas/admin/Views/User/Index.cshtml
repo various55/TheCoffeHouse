@@ -39,14 +39,17 @@
                                     @using (Html.BeginForm("Login", "User",FormMethod.Post,new {@class = "floating-form" }))
                                     {
                                         @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                                        @Html.ValidationSummary(true, "Test", new { @class = "alert alert-danger" })
                                         <div class="form-group">
                                             @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user" })
                                             @Html.LabelFor(model=>model.Username, new { @class = "label" })
+                                            @Html.ValidationMessageFor(m=>m.Username)
                                         </div>
                                         <div class="form-group">
-                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user"})
-                                            @Html.LabelFor(model=>model.Password,new {@class = "label" })
+                                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user" })
+                                            @Html.LabelFor(model => model.Password, new { @class = "label" })
+                                            @Html.ValidationMessageFor(m => m.Password)
+
                                         </div>
                                         <div class="form-group">
                                             <input type="submit" class="submit" value="Đăng nhập">

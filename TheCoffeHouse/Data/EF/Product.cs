@@ -6,50 +6,49 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Product
+    public partial class Product :AbstractModel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            OrderDetails = new HashSet<OrderDetail>();
-            Status = new HashSet<Status>();
+            isShowOnHome = true;
         }
 
-        [StringLength(10)]
-        public string id { get; set; }
-
-        [Display(Name ="Tên sản phẩm")]
-        [StringLength(50)]
-        public string name { get; set; }
-
+        [Display(Name ="Miêu tả")]
         [StringLength(255)]
         public string description { get; set; }
 
-        [Display(Name = "Giá")]
+        [Required]
+        [Display(Name ="Giá")]
         public double? price { get; set; }
 
+        [Display(Name ="Nội dung chi tiết")]
         [Column(TypeName = "ntext")]
         public string details { get; set; }
 
+        [Required]
+        [Display(Name ="Hiển thị trên trang chủ")]
         public bool? isShowOnHome { get; set; }
 
+        [Required]
+        [Display(Name ="Giảm giá")]
         public double? discount { get; set; }
 
+        [Display(Name ="Số lượng order")]
         public int? quantityOrder { get; set; }
 
+        [Display(Name ="Ảnh")]
         [StringLength(255)]
         public string image { get; set; }
 
+        [Display(Name ="Danh mục")]
         [Required]
-        [StringLength(10)]
-        public string categoriesId { get; set; }
+        public int categoriesId { get; set; }
 
+        [ForeignKey("categoriesId")]
         public virtual Category Category { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Status> Status { get; set; }
     }
 }

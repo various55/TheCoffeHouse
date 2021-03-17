@@ -4,79 +4,69 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+<div class="container-fluid">
+    <div class="page-header">
+        <h2>Danh sách sản phẩm</h2>
+        <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
+    </div>
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.id)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.name)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.description)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.price)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.isShowOnHome)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.discount)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.quantityOrder)</th>
+                        <th scope="col">Danh mục</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m=>item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price) $
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" @(item.isShowOnHome==true? "checked":"")>
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.discount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.quantityOrder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.details)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isShowOnHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.discount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantityOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.image)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isShowOnHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.discount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantityOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
-</table>
+        </div>
+    </div>
+    
+</div>
