@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Data.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TheCoffeHouse.Areas.admin.Constains;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
@@ -15,12 +17,19 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         {
             return View();
         }
-        [ChildActionOnly]
-        public ActionResult Navbar()
+        public ActionResult GetUsername()
         {
-            String[] items = { "Home","Contact" };
-            ViewBag.items = items;
-            return PartialView("_NavbarPartial",items);
+            var username = Request.Cookies[CookieConst.COOKIE_LOGIN].Value;
+            if(!String.IsNullOrEmpty(username.ToString()))
+            {
+                var user = new UserDAO();
+                //ViewBag.user = user.findByUsername(username);
+            }
+            else
+            {
+                RedirectToAction("Login","User");
+            }
+            return PartialView("Layout/_LeftMenuPartial");
         }
     }
 }

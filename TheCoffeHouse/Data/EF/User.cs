@@ -6,22 +6,19 @@ namespace Data.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class User
+    public partial class User : AbstractModel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            UserRoles = new HashSet<UserRole>();
         }
-
-        [StringLength(10)]
-        public string id { get; set; }
 
         [StringLength(25)]
         public string username { get; set; }
 
         [StringLength(256)]
         public string password { get; set; }
+
+        public int? role { get; set; }
 
         [StringLength(20)]
         public string phoneNumber { get; set; }
@@ -33,16 +30,13 @@ namespace Data.EF
         public DateTime? DOB { get; set; }
 
         [StringLength(50)]
-        public string fullName { get; set; }
-
-        [StringLength(50)]
         public string address { get; set; }
 
         public double? total { get; set; }
 
         public bool? status { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
+
     }
 }

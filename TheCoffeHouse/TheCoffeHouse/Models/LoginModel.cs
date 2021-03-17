@@ -7,24 +7,15 @@ using System.Web;
 
 namespace TheCoffeHouse.Models
 {
-    [Table("Users")]
     public class LoginModel
     {
-        [Required]
-        private string username;
-        private string password;
+        [Display(Name = "Tài khoản")]
+        [Required(ErrorMessage = ("Tài khoản không được để trống"))]
+        public string Username { get; set; }
 
-        public LoginModel()
-        {
-        }
-
-        public LoginModel(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-        }
-
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
+        [Display(Name = "Mật khẩu")]
+        [Required(ErrorMessage = ("Mật khẩu không được để trống"))]
+        public string Password { get; set; }
+        public bool IsRememberMe { get; set; }
     }
 }

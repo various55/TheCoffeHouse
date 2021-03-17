@@ -10,21 +10,21 @@ namespace Data.Dao
 {
     public class UserDAO
     {
-        private WebDbContext context = null;
+        private MyDbContext context = null;
 
         public UserDAO()
         {
-          context = new WebDbContext();
+          context = new MyDbContext();
         }
         public bool Login(String username,string password)
         {
-            object[] sqlParams =
-            {
-                new SqlParameter("@username", username ),
-                new SqlParameter("@password", password ),
-            };
-            var res = context.Database.SqlQuery<bool>("usp_login @username,@password", sqlParams).SingleOrDefault();
-            return res;
+            var res = context.Users.SingleOrDefault(x => x.username == username && x.password == password);
+            return res != null;
+        }
+        public User findByUsername(String username)
+        {
+            var user = context.Users.Where(u => u.username == username).FirstOrDefault();
+            return user;
         }
 
     }

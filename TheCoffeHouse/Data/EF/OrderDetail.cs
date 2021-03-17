@@ -9,21 +9,20 @@ namespace Data.EF
     public partial class OrderDetail
     {
         [Key]
-        [Column(Order = 0)]
-        [StringLength(10)]
-        public string orderId { get; set; }
+        public int id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string productId { get; set; }
+        public int orderId { get; set; }
+
+        public int productId { get; set; }
 
         public int? quantity { get; set; }
 
         public double? price { get; set; }
 
+        [ForeignKey("orderId")]
         public virtual Order Order { get; set; }
 
+        [ForeignKey("productId")]
         public virtual Product Product { get; set; }
     }
 }

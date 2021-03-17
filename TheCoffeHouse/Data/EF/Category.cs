@@ -6,25 +6,18 @@ namespace Data.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Category
+    public partial class Category : AbstractModel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
-            Products = new HashSet<Product>();
+            isShowOnHome = true;
+            status = true;
         }
-
-        [StringLength(10)]
-        public string id { get; set; }
-
-        [StringLength(50)]
-        public string name { get; set; }
 
         public bool? isShowOnHome { get; set; }
 
         public bool? status { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

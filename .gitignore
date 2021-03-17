@@ -14,7 +14,8 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+TheCoffeHouse/Data/obj
+TheCoffeHouse/Data/obj
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

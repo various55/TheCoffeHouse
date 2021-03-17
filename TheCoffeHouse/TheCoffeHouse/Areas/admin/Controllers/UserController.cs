@@ -11,14 +11,15 @@ using TheCoffeHouse.Models;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
 
         // GET: admin/User
         public ActionResult Index()
         {
-            var session = Session[SessionConst.SESSION_LOGIN];
-            if (session != null)
+            // Kiểm tra xem đã đăng nhập chưa, nếu đăng nhập rồi thì redirect sang trang chủ admin
+            if (Request.Cookies[CookieConst.COOKIE_LOGIN] != null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -28,18 +29,20 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
-            //var res = new UserDAO().Login(model.Username, model.Password);
-            var res = Membership.ValidateUser(model.Username, model.Password);
-            if (res && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
-                FormsAuthentication.SetAuthCookie(model.Username,true);
-                Session[SessionConst.SESSION_LOGIN] = model.Username;
-                return RedirectToAction("Index","Home");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không tồn tại");
+                var res = Membership.ValidateUser(model.Username, model.Password);
+                if (res)
+                {
+                    //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
+                    FormsAuthentication.SetAuthCookie(model.Username, true);
+                    Response.Cookies[CookieConst.COOKIE_LOGIN].Value = model.Username;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không tồn tại");
+                }
             }
             return View("Index");
         }
@@ -47,7 +50,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            Session.Remove(SessionConst.SESSION_LOGIN);
+            Response.Cookies[CookieConst.COOKIE_LOGIN].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Index","User");
         }
     }

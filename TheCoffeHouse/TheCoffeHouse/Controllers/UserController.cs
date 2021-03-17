@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Data.Dao;
-using Data.EF;
 using TheCoffeHouse.Areas.admin.Helpers;
 using TheCoffeHouse.Models;
 
 namespace TheCoffeHouse.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
         // GET: User
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
