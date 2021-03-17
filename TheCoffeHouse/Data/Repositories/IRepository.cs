@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
+
+        // Repository pattern
         T add(T model);
+        void update(T model);
+        T delete(int id);
+        T delete(T model);
+
+        IEnumerable<T> findAll();
+
+        IEnumerable<T> findAll(string[] includes = null);
+        T findById(int id);
+
     }
 }

@@ -4,17 +4,17 @@ namespace Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Data.EF;
 
     public partial class MyDbContext : System.Data.Entity.DbContext
     {
         public MyDbContext()
             : base("name=TheCoffeeHouseDb")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public virtual DbSet<Action> Actions { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Function> Functions { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
@@ -22,28 +22,18 @@ namespace Data
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
-        public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<EF.Type> Types { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Permission> Permissions { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Action>()
-                .HasMany(e => e.Permissions)
-                .WithRequired(e => e.Action)
-                .WillCascadeOnDelete(false);
+ 
 
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Category)
                 .HasForeignKey(e => e.categoriesId)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Function>()
-                .HasMany(e => e.Permissions)
-                .WithRequired(e => e.Function)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Order>()
@@ -69,17 +59,6 @@ namespace Data
                 .HasMany(e => e.Status)
                 .WithMany(e => e.Products)
                 .Map(m => m.ToTable("ProductStatus").MapLeftKey("productId").MapRightKey("statusId"));
-
-            modelBuilder.Entity<Role>()
-                .HasMany(e => e.Permissions)
-                .WithRequired(e => e.Role)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Role>()
-                .HasMany(e => e.UserRoles)
-                .WithRequired(e => e.Role)
-                .HasForeignKey(e => e.userId)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ShopConfig>()
                 .Property(e => e.imageLogo)
@@ -109,7 +88,7 @@ namespace Data
                 .Property(e => e.youtube)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Type>()
+            modelBuilder.Entity<EF.Type>()
                 .HasMany(e => e.Orders)
                 .WithRequired(e => e.Type)
                 .WillCascadeOnDelete(false);
@@ -129,11 +108,6 @@ namespace Data
             modelBuilder.Entity<User>()
                 .Property(e => e.email)
                 .IsFixedLength();
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.UserRoles)
-                .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
         }

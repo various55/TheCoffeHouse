@@ -8,10 +8,5 @@ namespace Data.EF
 
     public partial class Role : AbstractModel
     {
-        public virtual ICollection<Permission> Permissions { get; set; }
-
-        public virtual ICollection<UserRole> UserRoles { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
     }
 }

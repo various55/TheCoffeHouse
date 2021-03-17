@@ -340,11 +340,20 @@
           </a>
           
         </li>
-        <li>
-          <a href="../css/api-admin/product">
-            <i class="fa fa-th"></i> <span>Sản phẩm</span>
-            
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          </ul>
         </li>
         <li class="">
           <a href="../css/api-admin/keyword">
@@ -610,12 +619,22 @@
           </div>
           <div class="box-body block-images">
                 <div style="margin-bottom: 10px">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTzMcYWJkLEXnPD7zTbRwdnNRjjNPJDdP4ePQ&amp;usqp=CAU" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTzMcYWJkLEXnPD7zTbRwdnNRjjNPJDdP4ePQ&usqp=CAU';" class="img-thumbnail" style="width: 200px;height: 200px;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTzMcYWJkLEXnPD7zTbRwdnNRjjNPJDdP4ePQ&amp;usqp=CAU" class="img-thumbnail" style="width: 200px;height: 200px;" id="image-post">
                 </div>
-                <div style="position:relative;"> <a class="btn btn-primary" href="javascript:;"> Choose File... <input type="file" style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:&quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=0)&quot;;opacity:0;background-color:transparent;color:transparent;" name="pro_avatar" size="40" class="js-upload"> </a> &nbsp; <span class="label label-info" id="upload-file-info"></span> </div>
+                  <label class="btn btn-primary" for="uploadfile"> Choose File... </label>  <input type="file" style="display: none;" name="pro_avatar" id="uploadfile"> 
             </div>
         </div>
       </div>
+      <script>
+        $('#uploadfile').on('change',function(ev){ 
+            var reader=new FileReader(); 
+            reader.onload=function(ev){
+              $('#image-post').attr('src',ev.target.result).css('width','350px').css('height','350px').css('margin-bottom','50px'); 
+            }
+            reader.readAsDataURL(this.files[0]);   
+            
+          });
+      </script>
       <div class="col-sm-12 clearfix">
         <div class="box-footer text-center">
           <a href="../css/api-admin/product" class="btn btn-default"><i class="fa fa-arrow-left"></i>Cancel</a>

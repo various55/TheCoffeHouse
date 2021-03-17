@@ -7,30 +7,43 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Data.Dao;
-using Data.EF;
+using Data;
 using TheCoffeHouse.Areas.admin.Constains;
+using Data.EF;
+using Business.Service;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private MyDbContext db = new MyDbContext();
-        private ProductsDAO productDAO = new ProductsDAO();
+        private readonly IProductService productService;
+        private readonly ICategoryService categoryService;
+        public ProductsController()
+        {
+
+        }
+
+        public ProductsController(IProductService productService,ICategoryService categoryService)
+        {
+            this.productService = productService;
+            this.categoryService = categoryService;
+        }
+
         // GET: admin/Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var products = productService.findAll(new string[] { "Category" });
+            return View(products);
         }
 
         // GET: admin/Products/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (id < 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = productService.findById(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -41,7 +54,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         // GET: admin/Products/Create
         public ActionResult Create()
         {
-            ViewBag.categoriesId = new SelectList(db.Categories, "id", "name");
+            ViewBag.categoriesId = new SelectList(categoryService.findAll(), "id", "name");
             return View();
         }
 
@@ -56,11 +69,12 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             if (ModelState.IsValid)
             {
                 product.image = ImagesConst.URL_IMAGE + product.image;
-                productDAO.add(product);
+                productService.add(product);
+                productService.Save();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.categoriesId = new SelectList(db.Categories, "id", "name", product.categoriesId);
+            ViewBag.categoriesId = new SelectList(categoryService.findAll(), "id", "name", product.categoriesId);
             return View(product);
         }
 
@@ -71,13 +85,13 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = productService.findById(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriesId = new SelectList(db.Categories, "id", "name", product.categoriesId);
-            return View(product);
+            ViewBag.categoriesId = new SelectList(categoryService.findAll(), "id", "name", product.categoriesId);
+            return View();
         }
 
         // POST: admin/Products/Edit/5
@@ -87,13 +101,13 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,name,description,price,details,isShowOnHome,discount,quantityOrder,image,categoriesId")] Product product)
         {
-            
             return View(product);
         }
 
         // GET: admin/Products/Delete/5
         public ActionResult Delete(int id)
         {
+            /*
             if (id < 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -103,7 +117,8 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+            */
+            return View();
         }
 
         // POST: admin/Products/Delete/5
@@ -111,19 +126,23 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            /*
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
+            */
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
+            /*
             if (disposing)
             {
                 db.Dispose();
             }
             base.Dispose(disposing);
+            */
         }
     }
 }
