@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyExceptions
+namespace Data.Repositories
 {
-    public class Class1
+    public interface IDbFactory : IDisposable
     {
+        MyDbContext Init();
     }
 }

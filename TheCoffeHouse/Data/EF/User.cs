@@ -36,7 +36,6 @@ namespace Data.EF
 
         public bool? status { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
 
     }

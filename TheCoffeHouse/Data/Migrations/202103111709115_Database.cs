@@ -237,7 +237,6 @@
         public override void Down()
         {
             DropForeignKey("dbo.Permissions", "roleId", "dbo.Actions");
-            DropForeignKey("dbo.Users", "Role_id", "dbo.Roles");
             DropForeignKey("dbo.UserRoles", "userId", "dbo.Roles");
             DropForeignKey("dbo.UserRoles", "userId", "dbo.Users");
             DropForeignKey("dbo.Transactions", "userId", "dbo.Users");
@@ -258,7 +257,6 @@
             DropIndex("dbo.Orders", new[] { "typeId" });
             DropIndex("dbo.Transactions", new[] { "orderId" });
             DropIndex("dbo.Transactions", new[] { "userId" });
-            DropIndex("dbo.Users", new[] { "Role_id" });
             DropIndex("dbo.UserRoles", new[] { "userId" });
             DropIndex("dbo.Permissions", new[] { "actionId" });
             DropIndex("dbo.Permissions", new[] { "functionId" });
