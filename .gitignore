@@ -484,9 +484,14 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,csharp
+<<<<<<< Updated upstream
 #my
 *.cache
 .Data/obj/debug/*.cache
 .TheCoffeHouse/bin/*.dll
 .TheCoffeHouse/bin/*.pdb
 .fe/TheCoffeHouse/login/you-login
+=======
+#MyGitIgnore
+*.cache
+>>>>>>> Stashed changes
