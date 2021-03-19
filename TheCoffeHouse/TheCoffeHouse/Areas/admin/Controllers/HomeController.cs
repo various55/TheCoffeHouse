@@ -22,14 +22,14 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             var username = Request.Cookies[CookieConst.COOKIE_LOGIN].Value;
             if(!String.IsNullOrEmpty(username.ToString()))
             {
-                var user = new UserDAO();
-                //ViewBag.user = user.findByUsername(username);
+                var userDAO = new UserDAO();
+                var user = userDAO.findByUsername(username);
+                return PartialView("Layout/_UserPartial", user);
             }
             else
             {
-                RedirectToAction("Login","User");
+                return RedirectToAction("Login","User");
             }
-            return PartialView("Layout/_LeftMenuPartial");
         }
     }
 }
