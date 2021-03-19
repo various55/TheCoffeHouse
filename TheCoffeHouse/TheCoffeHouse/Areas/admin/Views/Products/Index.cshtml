@@ -4,69 +4,173 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-<div class="container-fluid">
-    <div class="page-header">
-        <h2>Danh sách sản phẩm</h2>
-        <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
-    </div>
-    <div class="container-fluid">
-        <div class="table-responsive">
-            <table class="table table-hover table-striped table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">@Html.DisplayNameFor(model => model.id)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.name)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.description)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.price)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.isShowOnHome)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.discount)</th>
-                        <th scope="col">@Html.DisplayNameFor(model => model.quantityOrder)</th>
-                        <th scope="col">Danh mục</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(m=>item.id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.price) $
-                        </td>
-                        <td>
-                            <label class="switch">
-                                <input type="checkbox" @(item.isShowOnHome==true? "checked":"")>
-                                <span class="slider round"></span>
-                            </label>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.discount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.quantityOrder)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.name)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
+<!-- JQuery DataTable Css -->
+@section CustomCss{
+    <link href="/Assets/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
 
+}
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle">
+                    </div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle">
+                    </div>
+                </div>
+            </div>
         </div>
+        <p>
+            Please wait...
+        </p>
     </div>
-    
 </div>
+<!-- #END# Page Loader -->
+<!-- Overlay For Sidebars -->
+<div class="overlay">
+</div>
+<!-- #END# Overlay For Sidebars -->
+<!-- Search Bar -->
+<div class="search-bar">
+    <div class="search-icon">
+        <i class="material-icons">
+            search
+        </i>
+    </div>
+    <input placeholder="START TYPING..." type="text">
+    <div class="close-search">
+        <i class="material-icons">
+            close
+        </i>
+    </div>
+    </input>
+</div>
+<!-- #END# Search Bar -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                Danh sách sản phẩm
+            </h2>
+        </div>
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Danh sách sản phẩm
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.id)
+                                        </th>
+                                        <th>
+                                            Danh mục
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.price)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.isShowOnHome)
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.discount)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.quantityOrder)
+                                        </th>
+                                        <th>
+                                            Tác vụ
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(m => item.id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.price) $
+                                            </td>
+                                            <td>
+                                                <div class="col-sm-3">
+                                                    <div class="switch">
+                                                        <label><input type="checkbox" @(item.isShowOnHome == true ? "checked" : "")><span class="lever switch-col-red"></span></label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.discount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.quantityOrder)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>
+@section js{
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="/Assets/admin/plugins/jquery-datatable/jquery.dataTables.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/buttons.flash.min.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/jszip.min.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/pdfmake.min.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/vfs_fonts.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/buttons.html5.min.js">
+    </script>
+    <script src="/Assets/admin/plugins/jquery-datatable/extensions/export/buttons.print.min.js">
+    </script>
+}
+@section CustomJS{
+    <!-- Custom Js -->
+    <script src="/Assets/admin/js/admin.js">
+    </script>
+    <script src="/Assets/admin/js/pages/tables/jquery-datatable.js">
+    </script>
+}
+

@@ -14,6 +14,9 @@ using Business.Service;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
+
+
+
     public class ProductsController : Controller
     {
         private readonly IProductService productService;
@@ -68,7 +71,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.image = ImagesConst.URL_IMAGE + product.image;
+                product.quantityOrder = 0;
                 productService.add(product);
                 productService.Save();
                 return RedirectToAction("Index");
