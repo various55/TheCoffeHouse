@@ -4,157 +4,208 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-<link rel="stylesheet" href="~/Assets/admin/css/view/css/products/create/myCss.css" />
-<div class="container-fluid">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <section class="content-header">
-            <!-- Content Header (Page header) -->
-            <h1> Thêm sản phẩm</h1>
-            <ol class="breadcrumb">
-                <li><a href="../css/api-admin"> Trang chủ</a></li>
-                <li><a href="../css/api-admin/product">Sản phẩm</li> >
-                <li><a href="#" class="active">Thêm mới</a></li>
-            </ol>
-        </section>
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <form action="" role="form" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="PBjLgRUnjWGGPhhjL8fnIZLMCiqqYBwQKATkxCr2">        <div class="col-md-8">
-                        <div class="box box-warning">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Thông tin cơ bản</h3>
-                            </div>
-                            <div class="box-body container-fluid">
-                                <div class="container-fluid ">
-                                    <style>
-                                        .row {
-                                            padding: 5px;
-                                        }
-                                    </style>
-                                    <div class="row container-fluid">
-                                        <div class="form-group flex">
-                                            <div class="col-sm-4">
-                                                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label" })
-                                            </div>
-                                            <div class="col-sm-8">
-                                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row container-fluid">
-                                        <div class="form-group flex">
-                                            <div class="col-sm-4">
-                                                @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label" })
-                                            </div>
-                                            <div class="col-sm-8">
-                                                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row container-fluid">
-                                        <div class="form-group flex">
-                                            <div class="col-sm-4">
-                                                @Html.LabelFor(model => model.discount, htmlAttributes: new { @class = "control-label" })
-                                            </div>
-                                            <div class="col-sm-8">
-                                                @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
+@section CustomCss{
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h1>
+                <strong>THÊM MỚI SẢN PHẨM</strong>
+            </h1>
+        </div>
+        <!-- Basic Example | Horizontal Layout -->
+        <!--Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "frmFileUpload", class = "dropzone", enctype = "multipart/form-data" }-->
+        <form class="dropzone" id="frmFileUpload" method="post" action="@Url.Action("Create","Products")">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "font-bold text-bo text-danger" })
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            @Html.ActionLink("Danh sách sản phẩm", "Index", "Products")/@Html.ActionLink("Thêm mới sản phẩm", "Create", "Products")
+                        </div>
+                        <div id="nouislider_basic_example"></div>
+                        <div id="nouislider_range_example"></div>
+                        <div class="body">
+                            <div id="wizard_horizontal">
+                                <h2>Nội dung hiển thị</h2>
+                                <section>
+                                    <div class="row clearfix">
+                                        <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2>
+                                                        Thông tin chi tiết sản phẩm
+                                                    </h2>
+                                                </div>
+                                                <div class="body">
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <div class="card-inside-title">
+                                                                    <label>
+                                                                        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label" })
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-line">
+                                                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Trà đào cam xả..." } })
+                                                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Switch box -->
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-3">
+                                                            <div class="demo-switch-title">
+                                                                Hiên thị trên trang chủ
+                                                            </div>
+                                                            <div class="switch">
+                                                                <label>
+                                                                    <input checked="" type="checkbox">
+                                                                    <span class="lever switch-col-blue">
+                                                                    </span>
+                                                                    </input>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                    <div class="row container-fluid">
-                                        <div class="col-sm-4">
-                                            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label" })
-                                        </div>
-                                        <div class="col-sm-8">
-                                            @Html.TextAreaFor(model => model.description, new { @rows = "5", @cols = "50", @class = "form-control 1" })
-                                            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="row container-fluid">
-                                        <div class="form-group">
-                                            <div class="col-sm-4">
-                                                @Html.LabelFor(model => model.isShowOnHome, htmlAttributes: new { @class = "control-label" })
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="checkbox">
-                                                    @Html.EditorFor(model => model.isShowOnHome)
-                                                    @Html.ValidationMessageFor(model => model.isShowOnHome, "", htmlAttributes: new { @class = "text-danger" })
+                                                    <!-- Categories -->
+                                                    <div class="col-md-3">
+                                                        <p>
+                                                            @Html.LabelFor(model => model.categoriesId, "Loại sản phẩm", htmlAttributes: new { @class = "control-label" })
+                                                        </p>
+                                                        @Html.DropDownListFor(m => m.categoriesId, null, htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.categoriesId, "", new { @class = "text-danger" })
+
+                                                    </div>
+                                                    <div class="row clearfix">
+                                                        <div class="col-md-3">
+                                                            <b>
+                                                                @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label" })
+                                                            </b>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="material-icons">
+                                                                        attach_money
+                                                                    </i>
+                                                                </span>
+                                                                <div class="form-line">
+                                                                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ex: 56000" } })
+                                                                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Mô tả -->
+                                                    <h2 class="card-inside-title">
+                                                        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label" })
+                                                    </h2>
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-8">
+                                                            <div class="form-group">
+                                                                <div class="form-line">
+                                                                    @Html.TextAreaFor(model => model.description, new { @class = "form-control no-resize", @placeholder = "Nội dung hiển thị", @rows = "4" })
+                                                                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--Discount-->
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <div class="card-inside-title">
+                                                                    <label>
+                                                                        @Html.LabelFor(model => model.discount, htmlAttributes: new { @class = "control-label" })
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-line">
+                                                                    @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @class = "form-control", @placeholder = "0-100%" } })
+                                                                    @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="row clearfix">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <div class="card-inside-title">
+                                                                    <label>
+                                                                        @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label" })
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-line">
+                                                                    @Html.TextBoxFor(m => m.image, "", htmlAttributes: new { @readonly = "", @class = "from-control", @multiple = "true", @id = "txtImage" })
+                                                                    <a id="btnSelectImage" href="#">Chọn ảnh</a>
+                                                                    @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row container-fluid">
-                                        <div class="form-group">
-                                            <div class="col-sm-4">
-                                                @Html.LabelFor(model => model.categoriesId, "Loại sản phẩm", htmlAttributes: new { @class = "control-label" })
+                                </section>
 
+                                <h2>Nội dung chi tiết</h2>
+                                <section>
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card">
+                                                <div class="header">
+                                                    <h2>
+                                                        CKEDITOR
+                                                        <small>CKEditor is a ready-for-use HTML text editor designed to simplify web content creation. Taken from <a href="http://ckeditor.com/" target="_blank">ckeditor.com</a></small>
+                                                    </h2>
+
+                                                </div>
+                                                <div class="body">
+                                                    @Html.TextAreaFor(model => model.details, new { @id = "ckeditor", @class = "form-control no-resize", @placeholder = "Nội dung hiển thị", @rows = "4" })
+                                                    @Html.ValidationMessageFor(model => model.details, "", new { @class = "text-danger" })
+                                                </div>
                                             </div>
-                                            <div class="col-sm-8">
-                                                @Html.DropDownListFor(m=>m.categoriesId, null , htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.categoriesId, "", new { @class = "text-danger" })
-                                            </div>
                                         </div>
                                     </div>
-
-                                </div>
-                            </div>
-
-                            <div class="box box-warning">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Nội dung</h3>
-                                </div>
-                                <div class="box-body">
-                                    <div class="form-group ">
-                                        @Html.LabelFor(model => model.details, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.TextAreaFor(model => model.details, new { @name = "pro_content", @id = "content", @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.details, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
+                                </section>
+                                <!-- #END# Basic Example | Horizontal Layout -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="box box-warning">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Ảnh đại diện</h3>
-                            </div>
-                            <div class="container-fluid">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Chọn ảnh [ Ảnh được lưu ở folder Assets]</label>
-                                        <div class="input-group float-right">
-                                                <span class="btn btn-default btn-file">
-                                                    Tải ảnh lên <input type="file" id="imgInp">
-                                                </span>
-                                            @Html.TextBoxFor(m => m.image, "", htmlAttributes: new { @readonly = "", @class = "from-control" })
-                                        </div>
-                                        <img class="cover" id='img-upload' />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 clearfix">
-                        <div class="box-footer text-center">
-                            <input type="submit" class="btn btn-danger" value="Thêm mới" />
-                        </div>
-                        <div class="box-footer text-center">
-                            <a href="@Url.Action("Index","Products")" class="btn btn-default"><i class="fa fa-arrow-left"></i>Cancel</a>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
-        </section>
-    }
-</div>
-<script src="~/Assets/admin/css/view/css/products/create/myJs.js"></script>
+        </form>
+    </div>
+</section>
+
+@section Js{
+    <!-- Ckeditor -->
+    <script src="/Assets/admin/plugins/ckeditor/ckeditor.js"></script>
+    <!--Ckfinder-->
+    <script src="~/Assets/admin/plugins/ckfinder/ckfinder.js"></script>
+    <!-- TinyMCE -->
+    <script src="/Assets/admin/plugins/tinymce/tinymce.js"></script>
+}
+
+@section CustomJs{
+    <script src="~/Assets/admin/js/pages/forms/advanced-form-elements.js"></script>
+    <script src="~/Assets/admin/js/pages/forms/form-wizard.js?t=27"></script>
+    <script src="/Assets/admin/js/pages/forms/editors.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnSelectImage').on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction = function(url){
+                    $('#txtImage').val(url)
+                };
+                finder.popup();
+            })
+        });
+    </script>
+}
+
+
