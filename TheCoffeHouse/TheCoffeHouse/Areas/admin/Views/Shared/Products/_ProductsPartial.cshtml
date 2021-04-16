@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Data.EF.Product>
+<div id="tableProducts" class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Danh sách sản phẩm
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <input type="button" class="btn btn-danger" value="Thêm mới" onclick="location.href='@Url.Action("Create", "Products")'" />
+                </ul>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.id)
+                                </th>
+                                <th>
+                                    Danh mục
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.isShowOnHome)
+                                <th>
+                                    @Html.DisplayNameFor(model => model.discount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.quantityOrder)
+                                </th>
+                                <th>
+                                    Tác vụ
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr id="row @item.id">
+                                <td>
+                                    @Html.DisplayFor(m => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.price) $
+                                </td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <div class="switch">
+                                            <label><input type="checkbox" name=@item.id class="btn-switch" @(item.isShowOnHome == true ? "checked" : "")><span class="lever switch-col-red"></span></label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.discount) %
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.quantityOrder)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn-delete", name = item.id })
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -37,6 +37,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
                     //SessionHelper.SetSession(new UserSession() { UserName = model.Username });
                     FormsAuthentication.SetAuthCookie(model.Username, true);
                     Response.Cookies[CookieConst.COOKIE_LOGIN].Value = model.Username;
+                    Response.Cookies[CookieConst.COOKIE_LOGIN].Expires = DateTime.Now.AddDays(1);
                     return RedirectToAction("Index", "Home");
                 }
                 else

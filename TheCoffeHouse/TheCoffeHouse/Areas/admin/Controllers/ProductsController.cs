@@ -51,6 +51,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.categoriesId = new SelectList(categoryService.findAll(), "id", "name", product.categoriesId);
             return View(product);
         }
 
@@ -94,7 +95,7 @@ namespace TheCoffeHouse.Areas.admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.categoriesId = new SelectList(categoryService.findAll(), "id", "name", product.categoriesId);
-            return View();
+            return View(product);
         }
 
         // POST: admin/Products/Edit/5
@@ -102,39 +103,37 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,description,price,details,isShowOnHome,discount,quantityOrder,image,categoriesId")] Product product)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "id,name,description,price,details,isShowOnHome,discount,quantityOrder,image,categoriesId")] Product product) 
         {
-            return View(product);
+            if (ModelState.IsValid)
+            {
+                productService.update(product);
+                productService.Save();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: admin/Products/Delete/5
         public ActionResult Delete(int id)
         {
-            /*
-            if (id < 0)
+            if (id < -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = productService.findById(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            */
-            return View();
-        }
-
-        // POST: admin/Products/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            /*
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            */
-            return RedirectToAction("Index");
+            else
+            {
+                productService.delele(product);
+                productService.Save();
+            }
+            var products = productService.findAll(new string[] { "Category" });
+            return PartialView("Products/_ProductsPartial", products);
         }
 
         protected override void Dispose(bool disposing)
@@ -146,6 +145,33 @@ namespace TheCoffeHouse.Areas.admin.Controllers
             }
             base.Dispose(disposing);
             */
+        }
+        public JsonResult SwitchStatus(int id)
+        {
+            var message = "";
+            if (id < -1)
+            {
+                message = "Id không tồn tại !";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+            Product product = productService.findById(id);
+            if (product == null)
+            {
+                message = "Sản phẩm không tồn tại !";
+                return Json(message, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                product.isShowOnHome = !product.isShowOnHome;
+                productService.update(product);
+                productService.Save();
+            }
+            return Json("Success",JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Products()
+        {
+            var products = productService.findAll(new string[] { "Category" });
+            return PartialView("Products/_ProductsPartial", products);
         }
     }
 }
