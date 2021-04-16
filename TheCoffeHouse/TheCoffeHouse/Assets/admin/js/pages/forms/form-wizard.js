@@ -19,7 +19,6 @@ $(function () {
         },
         onFinished: function (event, currentIndex) {
             form1.submit();
-            alert('Success');
         }
     });
 
