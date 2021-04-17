@@ -1,8 +1,9 @@
-﻿@model List<Data.EF.Product>
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@section MyCss{
+    <link rel="stylesheet" href="~/Assets/home/css/bootstrap.css">
+}
 <body class="js">
 
     <!-- Preloader -->
@@ -128,7 +129,8 @@
                     <div class="row">
                         <div class="col-12">
                             <!-- Shop Top -->
-                            <div class="shop-top">
+                            
+                            <div class="shop-top d-flex justify-content-between">
                                 <div class="shop-shorter">
                                     <div class="single-shorter">
                                         <label>Show :</label>
@@ -148,16 +150,33 @@
                                         </select>
                                     </div>
                                 </div>
-                                <ul class="view-mode">
-                                    <li class="active"><a href="shop-grid.html"><i class="fa fa-th-large"></i></a></li>
-                                    <li><a href="shop-list.html"><i class="fa fa-th-list"></i></a></li>
-                                </ul>
+                                <div class="">
+                                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                </div>
                             </div>
                             <!--/ End Shop Top -->
                         </div>
                     </div>
                     <div id="products" class="row">
-                        @Html.Action("Products", "Products");
+                        <div class="row">
+                            @Html.Action("FindByCategory", "Products")
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="container-fluid">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -170,29 +189,17 @@
                 e.preventDefault()
                 console.log(e.target.name);
                 var id = e.target.name;
-                if(id<0)
-                    $.ajax({
-                        url: "/Products/Products",
-                        data: {
-                        },
-                        success: (response) => {
-                            $('#products').html(response);
-                        },
-                        error: (response) => {
-                        }
-                    })
-                if (id > 0)
-                    $.ajax({
-                        url: "/Products/FindByCategory",
-                        data: {
-                            id: id
-                        },
-                        success: (response) => {
-                            $('#products').html(response);
-                        },
-                        error: (response) => {
-                        }
-                    })
+                $.ajax({
+                    url: "/Products/FindByCategory",
+                    data: {
+                        id: id
+                    },
+                    success: (response) => {
+                        $('#products').html(response);
+                    },
+                    error: (response) => {
+                    }
+                })
             });
         </script>
     }

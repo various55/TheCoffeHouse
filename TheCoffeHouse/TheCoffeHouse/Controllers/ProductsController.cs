@@ -44,19 +44,15 @@ namespace TheCoffeHouse.Controllers
             return View(model);
         }
         [HttpGet]
-        public ActionResult Products()
+        public ActionResult FindByCategory(int? id=0)
         {
-            var products = productService.findAll();
-            return PartialView("Products/_ProductsPartial", products);
-        }
-        [HttpGet]
-        public ActionResult FindByCategory(int id)
-        {
-            if (id < -1)
+            if (id < 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var products = productService.findByCategoryId(id);
+            var products = productService.findAll();
+            if (id > 0)
+                products = productService.findByCategoryId(id.Value);
             return PartialView("Products/_ProductsPartial", products);
         }
     }

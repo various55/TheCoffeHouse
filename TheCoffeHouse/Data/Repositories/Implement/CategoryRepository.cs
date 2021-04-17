@@ -15,7 +15,7 @@ namespace Data.Repositories.Implement
     {
         public CategoryRepository(IDbFactory dbFactory):base(dbFactory)
         {
-
+            
         }
 
     }
