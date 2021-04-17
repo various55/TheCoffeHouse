@@ -1,11 +1,11 @@
 ﻿@model List<Data.EF.Category>
 
 <div class="single-widget category">
-    <h3 class="title">Danh mục</h3>
+    <h1 class="title text-center text-danger"><a class="findByCategory" name="-1" href="#">Danh mục</a></h1>
     <ul class="categor-list">
         @foreach (var item in Model)
         {
-            <li><a href="#">@item.name</a></li>
+            <li><a class="findByCategory" name=@item.id href="#">@item.name</a></li>
         }
     </ul>
 </div>

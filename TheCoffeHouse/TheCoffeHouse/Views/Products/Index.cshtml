@@ -33,21 +33,11 @@
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="shop-sidebar">
                         <!-- Single Widget -->
-                        @Html.Action("Categories","Products")
+                        @Html.Action("Categories", "Products")
                         <!--/ End Single Widget -->
                         <!-- Shop By Price -->
                         <div class="single-widget range">
                             <h3 class="title">Shop by Price</h3>
-                            <div class="price-filter">
-                                <div class="price-filter-inner">
-                                    <div id="slider-range"></div>
-                                    <div class="price_slider_amount">
-                                        <div class="label-input">
-                                            <span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <ul class="check-box-list">
                                 <li>
                                     <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
@@ -166,49 +156,45 @@
                             <!--/ End Shop Top -->
                         </div>
                     </div>
-                    <!--Products-->
-                    <div class="row">
-                        @foreach (var item in Model)
-                        {
-                            if(item.isShowOnHome == true)
-                            {
-                                <div class="col-lg-4 col-md-6 col-12 ">
-                                    <div class="single-product border">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img class="default-img rounded" src="@item.image" alt="#">
-                                                <img class="hover-img rounded" src="@item.image" alt="#">
-                                            </a>
-                                            <div class="button-head">
-                                                <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                    <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-                                                </div>
-                                                <div class="product-action-2">
-                                                    <a title="Add to cart" href="#">Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-bold">
-                                            <h3><a href="product-details.html">@item.name</a></h3>
-                                            <div class="product-price text-blue">
-                                                <p>Giá tiền: @item.price $</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                        }
-
-                        </div>
+                    <div id="products" class="row">
+                        @Html.Action("Products", "Products");
                     </div>
-                    <!--End Products-->
                 </div>
             </div>
         </div>
     </section>
-    
+    @section MyJs{
+        <script>
+            var btnFindByCategory = $('.findByCategory');
+            btnFindByCategory.click((e) => {
+                e.preventDefault()
+                console.log(e.target.name);
+                var id = e.target.name;
+                if(id<0)
+                    $.ajax({
+                        url: "/Products/Products",
+                        data: {
+                        },
+                        success: (response) => {
+                            $('#products').html(response);
+                        },
+                        error: (response) => {
+                        }
+                    })
+                if (id > 0)
+                    $.ajax({
+                        url: "/Products/FindByCategory",
+                        data: {
+                            id: id
+                        },
+                        success: (response) => {
+                            $('#products').html(response);
+                        },
+                        error: (response) => {
+                        }
+                    })
+            });
+        </script>
+    }
 </body>
 </html>

@@ -19,6 +19,8 @@ namespace Business.Service
         Product findById(int id);
         IEnumerable<Product> findAll();
         IEnumerable<Product> findAll(string[] inclues);
+
+        IEnumerable<Product> findByCategoryId(int id);
         public void Save();
     }
     public class ProductService : IProductService
@@ -83,6 +85,12 @@ namespace Business.Service
         public IEnumerable<Product> findAll()
         {
             return productRepository.findAll();
+        }
+
+        public IEnumerable<Product> findByCategoryId(int id)
+        {
+            var products = productRepository.findAll().Where(p => p.categoriesId == id).ToList();
+            return products;
         }
 
         public Product findById(int id)

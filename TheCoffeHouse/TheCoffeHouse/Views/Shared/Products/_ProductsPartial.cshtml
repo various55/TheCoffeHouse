@@ -1,0 +1,43 @@
+﻿@model List<Data.EF.Product>
+<!--Products-->
+    @if(Model.Count < 1){
+        <div class="content">
+            <span class="text-bold">Không có sản phẩm nào được hiển thị</span>
+        </div>
+    }else
+    {
+        foreach (var item in Model)
+        {
+            if (item.isShowOnHome == true)
+            {
+                <div class="col-lg-4 col-md-6 col-12 ">
+                    <div class="single-product border">
+                        <div class="product-img">
+                            <a href="product-details.html">
+                                <img class="default-img rounded" src="@item.image" alt="#">
+                                <img class="hover-img rounded" src="@item.image" alt="#">
+                            </a>
+                            <div class="button-head">
+                                <div class="product-action">
+                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                                    <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                    <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                                </div>
+                                <div class="product-action-2">
+                                    <a title="Add to cart" href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content text-bold">
+                            <h3><a href="product-details.html">@item.name</a></h3>
+                            <div class="product-price text-blue">
+                                <p>Giá tiền: @item.price $</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+    }
+<!--End Products-->

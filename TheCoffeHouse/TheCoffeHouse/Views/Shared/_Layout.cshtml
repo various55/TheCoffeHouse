@@ -51,8 +51,8 @@
     <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
-                <span></span>
-                <span></span>
+                <span>loading...</span>
+                <span>loading</span>
             </div>
         </div>
     </div>
@@ -200,7 +200,9 @@
     <!-- Bootstrap JS -->
     <script src="~/Assets/home/js/bootstrap.min.js"></script>
     <!-- Color JS -->
-    <script src="~/Assets/home/js/colors.js"></script>
+    <!--
+       <script src="~/Assets/home/js/colors.js"></script>
+    -->
     <!-- Slicknav JS -->
     <script src="~/Assets/home/js/slicknav.min.js"></script>
     <!-- Owl Carousel JS -->
@@ -223,5 +225,7 @@
     <script src="~/Assets/home/js/easing.js"></script>
     <!-- Active JS -->
     <script src="~/Assets/home/js/active.js"></script>
+    @RenderSection("MyJs", required: false);
+
 </body>
 </html>
