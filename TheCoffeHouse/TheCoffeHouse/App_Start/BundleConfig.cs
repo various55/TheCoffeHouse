@@ -10,7 +10,7 @@ namespace TheCoffeHouse
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Assets/home/js/jquery.min.js",
+                        "~/Assets/home/js/jquery.min.js?t=1",
                         "~/Assets/home/js/jquery-ui.min.js",
                         "~/Assets/home/js/jquery-migrate-3.0.0.js"
                         ));
