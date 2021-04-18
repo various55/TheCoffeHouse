@@ -1,4 +1,5 @@
-﻿using Data.EF;
+﻿using Business.ModelView;
+using Data.EF;
 using Data.Repositories;
 using Data.Repositories.Implement;
 using System;
@@ -19,8 +20,10 @@ namespace Business.Service
         Product findById(int id);
         IEnumerable<Product> findAll();
         IEnumerable<Product> findAll(string[] inclues);
-
         IEnumerable<Product> findByCategoryId(int id);
+
+        ResponseData<Product> FilterAndPagination(RequestData request);
+
         public void Save();
     }
     public class ProductService : IProductService
@@ -67,6 +70,33 @@ namespace Business.Service
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public ResponseData<Product> FilterAndPagination(RequestData request)
+        {
+            int size = (int)request.pageSize;
+            int idCategory = (int)request.idCategory;
+            int pageNumber = (int)request.pageNumber;
+            string search = request.search;
+
+            var products = productRepository.findAll();
+            var total = productRepository.findAll().Count();
+            if (idCategory > 0)
+            {
+                products = products.Where(p => p.categoriesId == idCategory);
+            }
+            if (!String.IsNullOrEmpty(search))
+            {
+                products = products.Where(x => x.name.ToLower().Contains(search));
+            }
+            total = products.Count();
+            products = products.Skip(size * (pageNumber - 1)).Take(size);
+            ResponseData<Product> response = new ResponseData<Product>();
+            response.data = products.ToList();
+            response.pageNumber = pageNumber;
+            response.pageSize = size;
+            response.pageCount = (int) Math.Ceiling((double)total / size);
+            return response;
         }
 
         public IEnumerable<Product> findAll(string[] inclues)

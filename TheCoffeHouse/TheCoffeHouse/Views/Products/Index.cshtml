@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section MyCss{
-    <link rel="stylesheet" href="~/Assets/home/css/bootstrap.css">
+        <link rel="stylesheet" href="~/Assets/home/css/bootstrap.css">
 }
 <body class="js">
 
@@ -18,8 +18,8 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="blog-single.html">Shop Grid</a></li>
+                            <li><a href="index1.html">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="blog-single.html">Sản phẩm</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,106 +36,19 @@
                         <!-- Single Widget -->
                         @Html.Action("Categories", "Products")
                         <!--/ End Single Widget -->
-                        <!-- Shop By Price -->
-                        <div class="single-widget range">
-                            <h3 class="title">Shop by Price</h3>
-                            <ul class="check-box-list">
-                                <li>
-                                    <label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--/ End Shop By Price -->
-                        <!-- Single Widget -->
-                        <div class="single-widget recent-post">
-                            <h3 class="title">Recent post</h3>
-                            <!-- Single Post -->
-                            <div class="single-post first">
-                                <div class="image">
-                                    <img src="https://via.placeholder.com/75x75" alt="#">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">Girls Dress</a></h5>
-                                    <p class="price">$99.50</p>
-                                    <ul class="reviews">
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li><i class="ti-star"></i></li>
-                                        <li><i class="ti-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- End Single Post -->
-                            <!-- Single Post -->
-                            <div class="single-post first">
-                                <div class="image">
-                                    <img src="https://via.placeholder.com/75x75" alt="#">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">Women Clothings</a></h5>
-                                    <p class="price">$99.50</p>
-                                    <ul class="reviews">
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li><i class="ti-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- End Single Post -->
-                            <!-- Single Post -->
-                            <div class="single-post first">
-                                <div class="image">
-                                    <img src="https://via.placeholder.com/75x75" alt="#">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="#">Man Tshirt</a></h5>
-                                    <p class="price">$99.50</p>
-                                    <ul class="reviews">
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                        <li class="yellow"><i class="ti-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- End Single Post -->
-                        </div>
-                        <!--/ End Single Widget -->
-                        <!-- Single Widget -->
-                        <div class="single-widget category">
-                            <h3 class="title">Manufacturers</h3>
-                            <ul class="categor-list">
-                                <li><a href="#">Forever</a></li>
-                                <li><a href="#">giordano</a></li>
-                                <li><a href="#">abercrombie</a></li>
-                                <li><a href="#">ecko united</a></li>
-                                <li><a href="#">zara</a></li>
-                            </ul>
-                        </div>
-                        <!--/ End Single Widget -->
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-8 col-12">
                     <div class="row">
                         <div class="col-12">
                             <!-- Shop Top -->
-                            
+
                             <div class="shop-top d-flex justify-content-between">
                                 <div class="shop-shorter">
                                     <div class="single-shorter">
                                         <label>Show :</label>
-                                        <select>
-                                            <option selected="selected">09</option>
+                                        <select class="pageSize">
+                                            <option selected="selected">9</option>
                                             <option>15</option>
                                             <option>25</option>
                                             <option>30</option>
@@ -143,7 +56,7 @@
                                     </div>
                                     <div class="single-shorter">
                                         <label>Sort By :</label>
-                                        <select>
+                                        <select class="sortBy">
                                             <option selected="selected">Name</option>
                                             <option>Price</option>
                                             <option>Size</option>
@@ -151,56 +64,51 @@
                                     </div>
                                 </div>
                                 <div class="">
-                                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                    <input class="form-control search" id="myInput" type="text" placeholder="Search..">
                                 </div>
                             </div>
                             <!--/ End Shop Top -->
                         </div>
                     </div>
                     <div id="products" class="row">
-                        <div class="row">
-                            @Html.Action("FindByCategory", "Products")
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="container-fluid">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-end">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        @Html.Action("Products", "Products");
+                    </div>
+                    <div class="container-fluid">
+                        <nav aria-label="Page navigation example">
+                            <ul id="pagination" class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link control" href="#" tabindex="-1" name="Previous">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#" name="1">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#" name="2">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#" name="3">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link control" href="#" name="Next">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     @section MyJs{
+        <script src="~/Assets/common/customJs/commonJs.js"></script>
         <script>
-            var btnFindByCategory = $('.findByCategory');
-            btnFindByCategory.click((e) => {
-                e.preventDefault()
-                console.log(e.target.name);
-                var id = e.target.name;
-                $.ajax({
-                    url: "/Products/FindByCategory",
-                    data: {
-                        id: id
-                    },
-                    success: (response) => {
-                        $('#products').html(response);
-                    },
-                    error: (response) => {
-                    }
-                })
-            });
+            $(document).ready(() => {
+                url = '/Products/FilterAndPagination';
+                ChangePageNumber();
+                ChangePageSize();
+                Search();
+                ChangeSortBy();
+                FindByFK();
+            })
+            $('a.control').click((e) => {
+                var action = e.target.name;
+                if (action == 'Previous') {
+                    pageNumber+1>page
+                }
+            })
         </script>
     }
 </body>

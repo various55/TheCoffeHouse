@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Business.ModelView;
 
 namespace TheCoffeHouse.Controllers
 {
@@ -44,16 +45,23 @@ namespace TheCoffeHouse.Controllers
             return View(model);
         }
         [HttpGet]
-        public ActionResult FindByCategory(int? id=0)
+        public ActionResult Products()
         {
+            var products = productService.findAll().Where(p => p.isShowOnHome == true).ToList();
+            return PartialView("Products/_ProductsPartial",products);
+        }
+        [HttpPost]
+        public ActionResult FilterAndPagination(RequestData requestData)
+        {
+            var id = requestData.idCategory;
             if (id < 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var products = productService.findAll();
-            if (id > 0)
-                products = productService.findByCategoryId(id.Value);
-            return PartialView("Products/_ProductsPartial", products);
+            var products = productService.FilterAndPagination(requestData);
+            // Hiển thị những hình ảnh có status = true
+
+            return PartialView("Products/_ProductsPartial", products.data);
         }
     }
 }

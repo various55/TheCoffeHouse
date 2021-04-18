@@ -58,49 +58,11 @@
             </h2>
         </div>
         <!-- Exportable Table -->
-        @Html.Action("Products","Products");
+        @Html.Action("Products", "Products");
         <!-- #END# Exportable Table -->
     </div>
-    <!-- Modal confirm switch-->
-    <div class="modal" id="confirmSwitch" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hiển thị ngoài trang chủ</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Bạn có muốn thay đổi trang thái hiển thị sản phẩm ngoài trang chủ không ?.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn-cancel" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                    <button type="button" id="btn-confirm" class="btn btn-primary">Đồng ý</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal confirm delete-->
-    <div class="modal" id="confirmDelete" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Xóa sản phẩm</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Sau khi xóa sản phẩm, dữ liệu sẽ mất bạn có đồng ý không ?.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn-delete-cancel" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                    <button type="button" id="btn-delete-confirm" class="btn btn-primary">Đồng ý</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
 </section>
 @section js{
     <!-- Jquery DataTable Plugin Js -->
@@ -129,60 +91,25 @@
     </script>
     <script src="/Assets/admin/js/pages/tables/jquery-datatable.js">
     </script>
+
+    <script src="~/Assets/common/customJs/commonJs.js"></script>
     <script>
         var btnSwitch = $('.btn-switch');
-        var btnConfirm = $('#btn-confirm');
-        var btnCancel = $('#btn-cancel');
         var btnDelete = $('.btn-delete');
-        var btnConfirmDelete = $('#btn-delete-confirm');
-        var tableProducts = $('#tableProducts');
-        var button;
-        var id = -1;
-        var status=true;
+        var btnAddOrUpdate = $('.btn-add-update')
+        // Thay đổi trạng thái hiển thị trang chủ
         btnSwitch.click((e) => {
-            id = e.target.name;
+            id = e.target.id;
             status = e.target.checked;
-            $('#confirmSwitch').modal();
+            url = '/admin/Products/SwitchStatus';
+            SwitchStatus(url, id, status);
         })
-        btnCancel.click(() => {
-            var btn = $('input[name=' + id + ']')
-            btn.prop("checked", status!='true');
-        })
-        btnConfirm.click(() => {
-            $.ajax({
-                url: "/admin/Products/SwitchStatus",
-                data: {
-                    id: id
-                },
-                success: (response) => {
-                    $('#confirmSwitch').modal('toggle');
-                },
-                error: (response) => {
-                }
-            })
-            console.log(id);
-        });
-        var idDelete = -1;
+        // Xóa sản phẩm
         btnDelete.click((e) => {
             e.preventDefault();
-            idDelete = e.target.name;
-            $('#confirmDelete').modal();
-        })
-        btnConfirmDelete.click(() => {
-            $.ajax({
-                url: "/admin/Products/Delete",
-                data: {
-                    id: idDelete
-                },
-                success: (res) => {
-                    console.log(res);
-                    tableProducts.html(res)
-                    $('#confirmDelete').modal('toggle');
-                },
-                error: (response) => {
-                }
-            })
-            console.log(idDelete);
+            var id = e.target.name;
+            url = '/admin/Products/Delete'
+            DeleteById(url, id);
         })
     </script>
 }

@@ -46,8 +46,11 @@
     <!-- Custom Css -->
     <link href="/Assets/admin/css/style.css" rel="stylesheet">
 
+    <!-- sweetalert2 -->
+    <link href="~/Assets/common/package/dist/sweetalert2.min.css" rel="stylesheet" />
+
     <link href="~/Assets/admin/css/style.css" rel="stylesheet">
-    @RenderSection("CustomCss",required:false)
+    @RenderSection("CustomCss", required: false)
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="~/Assets/admin/css/themes/all-themes.css" rel="stylesheet" />
 </head>
@@ -71,6 +74,8 @@
         </div>
     </section>
     <script src="/Assets/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- sweetalert2 -->
+    <script src="~/Assets/common/package/dist/sweetalert2.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="/Assets/admin/plugins/bootstrap/js/bootstrap.js"></script>
@@ -119,9 +124,9 @@
     <!--Js custom admin-->
     <script src="/Assets/admin/js/admin.js"></script>
 
-    @RenderSection("Js",required:false)
+    @RenderSection("Js", required: false)
     <!--Custom Js-->
-    @RenderSection("CustomJs",required:false)
+    @RenderSection("CustomJs", required: false)
     <!-- Demo Js -->
     <script src="~/Assets/admin/js/demo.js"></script>
 </body>
