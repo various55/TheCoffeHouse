@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,8 +47,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="Autofac, Version=6.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.1.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
@@ -83,6 +86,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -366,6 +370,76 @@
     <Content Include="Assets\admin\login\js\popper.min.js" />
     <Content Include="Assets\admin\login\js\script.js" />
     <Content Include="Assets\admin\login\js\velocity.min.js" />
+    <Content Include="Assets\common\customJs\commonJs.js" />
+    <Content Include="Assets\common\package\dist\sweetalert2.all.js" />
+    <Content Include="Assets\common\package\dist\sweetalert2.all.min.js" />
+    <Content Include="Assets\common\package\dist\sweetalert2.css" />
+    <Content Include="Assets\common\package\dist\sweetalert2.js" />
+    <Content Include="Assets\common\package\dist\sweetalert2.min.css" />
+    <Content Include="Assets\common\package\dist\sweetalert2.min.js" />
+    <Content Include="Assets\common\package\src\constants.js" />
+    <Content Include="Assets\common\package\src\globalState.js" />
+    <Content Include="Assets\common\package\src\instanceMethods.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\buttons-handlers.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\close.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\enable-disable-elements.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\getInput.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\hideLoading.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\keydown-handler.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\popup-click-handler.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\progress-steps.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\update.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\validation-message.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\_destroy.js" />
+    <Content Include="Assets\common\package\src\instanceMethods\_main.js" />
+    <Content Include="Assets\common\package\src\privateMethods.js" />
+    <Content Include="Assets\common\package\src\privateProps.js" />
+    <Content Include="Assets\common\package\src\staticMethods.js" />
+    <Content Include="Assets\common\package\src\staticMethods\argsToParams.js" />
+    <Content Include="Assets\common\package\src\staticMethods\bindClickHandler.js" />
+    <Content Include="Assets\common\package\src\staticMethods\dom.js" />
+    <Content Include="Assets\common\package\src\staticMethods\fire.js" />
+    <Content Include="Assets\common\package\src\staticMethods\mixin.js" />
+    <Content Include="Assets\common\package\src\staticMethods\queue.js" />
+    <Content Include="Assets\common\package\src\staticMethods\showLoading.js" />
+    <Content Include="Assets\common\package\src\staticMethods\timer.js" />
+    <Content Include="Assets\common\package\src\SweetAlert.js" />
+    <Content Include="Assets\common\package\src\sweetalert2.js" />
+    <Content Include="Assets\common\package\src\utils\aria.js" />
+    <Content Include="Assets\common\package\src\utils\classes.js" />
+    <Content Include="Assets\common\package\src\utils\defaultInputValidators.js" />
+    <Content Include="Assets\common\package\src\utils\DismissReason.js" />
+    <Content Include="Assets\common\package\src\utils\dom\animationEndEvent.js" />
+    <Content Include="Assets\common\package\src\utils\dom\domUtils.js" />
+    <Content Include="Assets\common\package\src\utils\dom\getters.js" />
+    <Content Include="Assets\common\package\src\utils\dom\index.js" />
+    <Content Include="Assets\common\package\src\utils\dom\init.js" />
+    <Content Include="Assets\common\package\src\utils\dom\inputUtils.js" />
+    <Content Include="Assets\common\package\src\utils\dom\measureScrollbar.js" />
+    <Content Include="Assets\common\package\src\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\render.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderActions.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderCloseButton.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderContainer.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderContent.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderFooter.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderHeader.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderIcon.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderImage.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderInput.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderPopup.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderProgressSteps.js" />
+    <Content Include="Assets\common\package\src\utils\dom\renderers\renderTitle.js" />
+    <Content Include="Assets\common\package\src\utils\getTemplateParams.js" />
+    <Content Include="Assets\common\package\src\utils\ieFix.js" />
+    <Content Include="Assets\common\package\src\utils\iosFix.js" />
+    <Content Include="Assets\common\package\src\utils\isNodeEnv.js" />
+    <Content Include="Assets\common\package\src\utils\openPopup.js" />
+    <Content Include="Assets\common\package\src\utils\params.js" />
+    <Content Include="Assets\common\package\src\utils\scrollbarFix.js" />
+    <Content Include="Assets\common\package\src\utils\setParameters.js" />
+    <Content Include="Assets\common\package\src\utils\Timer.js" />
+    <Content Include="Assets\common\package\src\utils\utils.js" />
     <Content Include="Assets\admin\plugins\animate-css\animate.css" />
     <Content Include="Assets\admin\plugins\animate-css\animate.min.css" />
     <Content Include="Assets\admin\plugins\autosize\autosize.js" />
@@ -4653,6 +4727,21 @@
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\plugins\ckfinder\userfiles\.htaccess" />
+    <Content Include="Assets\common\package\CHANGELOG.md" />
+    <Content Include="Assets\common\package\LICENSE" />
+    <Content Include="Assets\common\package\package.json" />
+    <Content Include="Assets\common\package\README.md" />
+    <Content Include="Assets\common\package\src\scss\_animations.scss" />
+    <Content Include="Assets\common\package\src\scss\_body.scss" />
+    <Content Include="Assets\common\package\src\scss\_core.scss" />
+    <Content Include="Assets\common\package\src\scss\_mixins.scss" />
+    <Content Include="Assets\common\package\src\scss\_polyfills.scss" />
+    <Content Include="Assets\common\package\src\scss\_theming.scss" />
+    <Content Include="Assets\common\package\src\scss\_toasts-animations.scss" />
+    <Content Include="Assets\common\package\src\scss\_toasts-body.scss" />
+    <Content Include="Assets\common\package\src\scss\_toasts.scss" />
+    <Content Include="Assets\common\package\src\sweetalert2.scss" />
+    <Content Include="Assets\common\package\src\variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4692,12 +4781,12 @@
     <Content Include="Views\Shared\_MenuCategoriesPartial.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Areas\admin\Views\Shared\Products\_ProductsPartial.cshtml" />
+    <Content Include="Views\Shared\Products\_ProductsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Shared\ReportHome\" />
-    <Folder Include="Assets\common\" />
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Orders\" />
   </ItemGroup>
@@ -4730,6 +4819,9 @@
       <Project>{61e12072-9f7c-46b1-bce9-6f34459571b8}</Project>
       <Name>Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Assets\common\package\sweetalert2.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
