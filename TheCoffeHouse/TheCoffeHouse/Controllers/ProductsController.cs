@@ -59,9 +59,8 @@ namespace TheCoffeHouse.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var products = productService.FilterAndPagination(requestData);
-            // Hiển thị những hình ảnh có status = true
 
-            return PartialView("Products/_ProductsPartial", products.data);
+            return PartialView("Products/_ProductsPartial", products);
         }
     }
 }
