@@ -68,10 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelView\RequestData.cs" />
+    <Compile Include="ModelView\ResponseData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\ProductService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>

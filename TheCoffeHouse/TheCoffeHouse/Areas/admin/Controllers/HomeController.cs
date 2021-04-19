@@ -19,6 +19,10 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         }
         public ActionResult GetUsername()
         {
+            if (String.IsNullOrEmpty(Request.Cookies[CookieConst.COOKIE_LOGIN].Value))
+            {
+                return RedirectToAction("Login", "User");
+            }
             var username = Request.Cookies[CookieConst.COOKIE_LOGIN].Value;
             if(!String.IsNullOrEmpty(username.ToString()))
             {

@@ -18,7 +18,7 @@ Version:1.0
 06. Single Product CSS
 07. Shop Sidebar CSS
 08. Shop Single CSS
-09. Shop Home List CSS
+09. Shop Home List CSSf
 10. Cart CSS
 11. Checkout CSS
 12. Login & Register CSS
@@ -2202,7 +2202,7 @@ Version:1.0
 .shop .shop-top {
 	clear: both;
 	background: #f6f7fb;
-	padding: 18px 20px 50px 20px;
+	padding: 20px;
 }
 .shop .shop-shorter {
 	float: left;
