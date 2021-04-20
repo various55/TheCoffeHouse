@@ -78,8 +78,27 @@ namespace Business.Service
             int idCategory = (int)request.idCategory;
             int pageNumber = (int)request.pageNumber;
             string search = request.search;
+            string sort = request.sortBy;
+            bool isAsc = (bool) request.isAsc;
 
             var products = productRepository.findAll();
+
+            if (!String.IsNullOrEmpty(sort))
+            {
+                sort = sort.ToLower();
+            }
+            switch (sort)
+            {
+                case "name":
+                    products = products.OrderBy(p => p.name).ToList();
+                    break;
+                case "price":
+                    products = products.OrderBy(p => p.price).ToList();
+                    break;
+                default:
+                    products = products.OrderBy(p => p.id).ToList();
+                    break;
+            }
             var total = productRepository.findAll().Count();
             if (idCategory > 0)
             {
@@ -87,6 +106,7 @@ namespace Business.Service
             }
             if (!String.IsNullOrEmpty(search))
             {
+                search = search.ToLower();
                 products = products.Where(x => x.name.ToLower().Contains(search));
             }
             total = products.Count();

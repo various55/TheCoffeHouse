@@ -1,6 +1,6 @@
-﻿@model List<Data.EF.Product>
+﻿@model Business.ModelView.ResponseData<Data.EF.Product>
 <!--Products-->
-@if (Model.Count < 1)
+@if (Model.data.Count < 1)
 {
     <div class="content">
         <span class="text-bold">Không có sản phẩm nào được hiển thị</span>
@@ -8,7 +8,7 @@
 }
 else
 {
-    foreach (var item in Model)
+    foreach (var item in Model.data)
     {
         <div class="col-lg-4 col-md-6 col-12 ">
             <div class="single-product border">
@@ -38,5 +38,35 @@ else
         </div>
     }
 }
+<div class="container-fluid">
+    <nav aria-label="Page navigation example">
+        <ul id="pagination" class="pagination justify-content-end">
+            @{
+                var isPrevious = "page-item";
+                var pageNumber = Model.pageNumber;
+                if (pageNumber == 1)
+                {
+                    isPrevious = "page-item disabled";
+                }
+                <li class="@isPrevious">
+                    <a class="page-link control" href="#products" tabindex="-1" name="@(Model.pageNumber==1?1:Model.pageNumber - 1)">Previous</a>
+                </li>
+                var pageCount = Model.pageCount;
+                for (var i = 1; i <= pageCount; i++)
+                {
+                    <li class="page-item"><a class="page-link" href="#products" name="@i">@i</a></li>
+                }
+                var isNext = "page-item";
+                if (pageNumber == Model.pageCount)
+                {
+                    isNext = "page-item disabled";
+                }
+                <li class="@isNext">
+                    <a class="page-link control" href="#products" name="@(Model.pageNumber==Model.pageCount?Model.pageCount:Model.pageNumber+1)">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
 
 <!--End Products-->

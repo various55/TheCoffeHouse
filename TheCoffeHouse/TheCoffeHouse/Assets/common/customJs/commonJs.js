@@ -8,7 +8,7 @@ var sortBy = '';
 var isAsc = true;
 var search = '';
 var pageNumber = 1;
-var pageSize = 9;
+var pageSize = 3;
 
 // định nghĩa các function hiển thị dữ liệu
 function Search() {
@@ -36,14 +36,19 @@ function loadData(url) {
             requestData: data
         },
         success: (response) => {
-            console.log(response);
             $('#products').html('');
             $('#products').html(response);
+            ChangePageNumber();
         },
         error: (response) => {
             console.log(response);
         }
     })
+}
+function ScrollTop() {
+    $('html, body').animate({
+        scrollTop: $("#top").offset().top
+    }, 500);
 }
 function ChangeSortBy() {
     $('select.sortBy').on('change', function () {
@@ -58,7 +63,8 @@ function ChangePageSize() {
         let val = $(this).val();
         pageSize = val;
         pageNumber = 1;
-        loadData(url)
+        loadData(url);
+        ScrollTop();
     })
 }
 
@@ -67,6 +73,7 @@ function ChangePageNumber() {
         e.preventDefault();
         pageNumber = e.target.name;
         loadData(url);
+        ScrollTop();
     });
 }
 function FindByFK() {
@@ -74,6 +81,7 @@ function FindByFK() {
         e.preventDefault()
         idForeignKey = e.target.name;
         loadData(url);
+        ScrollTop();
     });
 }
 

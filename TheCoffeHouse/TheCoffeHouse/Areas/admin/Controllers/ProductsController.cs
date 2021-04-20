@@ -14,9 +14,6 @@ using Business.Service;
 
 namespace TheCoffeHouse.Areas.admin.Controllers
 {
-
-
-
     public class ProductsController : Controller
     {
         private readonly IProductService productService;
@@ -25,7 +22,6 @@ namespace TheCoffeHouse.Areas.admin.Controllers
         {
 
         }
-
         public ProductsController(IProductService productService,ICategoryService categoryService)
         {
             this.productService = productService;
